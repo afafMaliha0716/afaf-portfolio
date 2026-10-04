@@ -74,7 +74,7 @@
   --bg-editor:    #fff5f9;
   --bg-tab-act:   #fff5f9;
   --bg-tab-in:    #f7c3d8;
-  --bg-terminal:  #2d1b25;
+  --bg-terminal:  #fdeaf2;
   --bg-statusbar: #d63384;
   --bg-panel-hdr: #f2adc9;
   --bg-palette:   #fef0f6;
@@ -100,6 +100,91 @@
   --prop-color: #2563eb;
   --typ-color:  #d97706;
   --num-color:  #e8357a;
+
+  --green:   #1f9d63;
+  --blue:    #2563eb;
+  --yellow:  #b86200;
+  --purple:  #9333ea;
+  --teal:    #0f8f83;
+  --red:     #d6336c;
+}
+
+/* Lavender Night: the dark theme with the pink dialled toward purple */
+[data-theme="lavender"] {
+  --bg-app:       #100c1c;
+  --bg-titlebar:  #171028;
+  --bg-actbar:    #130e22;
+  --bg-sidebar:   #161026;
+  --bg-editor:    #1a1430;
+  --bg-tab-act:   #1a1430;
+  --bg-tab-in:    #130e22;
+  --bg-terminal:  #0d0a18;
+  --bg-statusbar: #5b3aa8;
+  --bg-panel-hdr: #120d20;
+  --bg-palette:   #1d1636;
+  --bg-tooltip:   #271d47;
+
+  --border:       #2a2048;
+  --border-light: #3a2d62;
+
+  --text-primary: #dcd3f5;
+  --text-mid:     #a99ad0;
+  --text-muted:   #6f5f9c;
+  --text-line:    #3a2d62;
+  --text-white:   #f1ecff;
+
+  --accent:       #a78bfa;
+  --accent2:      #c4b5fd;
+  --accent-glow:  rgba(167,139,250,0.18);
+
+  --kw-color:   #f0abfc;
+  --cmt-color:  #54467c;
+  --fn-color:   #c4b5fd;
+  --red:        #f9a8d4;
+}
+
+/* Strawberry Matcha: a light theme, green tea with a pink accent */
+[data-theme="matcha"] {
+  --bg-app:       #e6efdc;
+  --bg-titlebar:  #c9dcb6;
+  --bg-actbar:    #bfd5aa;
+  --bg-sidebar:   #dbe8cd;
+  --bg-editor:    #f8fbf3;
+  --bg-tab-act:   #f8fbf3;
+  --bg-tab-in:    #d2e2c1;
+  --bg-terminal:  #eef5e6;
+  --bg-statusbar: #5a8f4a;
+  --bg-panel-hdr: #c9dcb6;
+  --bg-palette:   #f5faef;
+  --bg-tooltip:   #f5faef;
+
+  --border:       #bfd5aa;
+  --border-light: #dbe8cd;
+
+  --text-primary: #1c2a17;
+  --text-mid:     #3f5636;
+  --text-muted:   #6f8a63;
+  --text-line:    #9db58f;
+  --text-white:   #1c2a17;
+
+  --accent:       #e8357a;
+  --accent2:      #c4205e;
+  --accent-glow:  rgba(232,53,122,0.12);
+
+  --kw-color:   #e8357a;
+  --str-color:  #3d7a2c;
+  --cmt-color:  #7f9a72;
+  --fn-color:   #9333ea;
+  --prop-color: #2563eb;
+  --typ-color:  #b86200;
+  --num-color:  #e8357a;
+
+  --green:   #3d7a2c;
+  --blue:    #2563eb;
+  --yellow:  #b86200;
+  --purple:  #9333ea;
+  --teal:    #0f8f83;
+  --red:     #d6336c;
 }
 
 /* ════════════════════════════════════════════════════════
@@ -761,7 +846,9 @@ body {
 }
 body { cursor: none; }
 a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
-.contact-link, .skill-item, .ptab, input { cursor: none; }
+.contact-link, .skill-item, .ptab, input, .menu-item, .sb-item, .tree-folder,
+.tree-note, .scm-commit, .titlebar-controls span, .titlebar-menus span, #dock,
+#closedScreen button, .prob-row { cursor: none; }
 
 /* ════════════════════════════════════════════════════════
    VSCODE NOTIFICATION
@@ -949,6 +1036,92 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
 .sb-lc.warn { background: var(--yellow); color: #2a1a00; padding: 0 6px; border-radius: 2px; }
 
 /* ════════════════════════════════════════════════════════
+   MENUS, WINDOW CONTROLS, SIDEBAR VIEWS
+   ════════════════════════════════════════════════════════ */
+.titlebar-menus span.open { background: var(--accent-glow); color: var(--text-primary); }
+.menu {
+  position: fixed; z-index: 8000; min-width: 230px;
+  padding: 5px; border-radius: 8px;
+  background: var(--bg-palette); border: 1px solid var(--border-light);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+  font-family: 'Inter', sans-serif; font-size: 12.5px;
+}
+.menu-item {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; padding: 6px 10px; border: 0; border-radius: 5px;
+  background: none; color: var(--text-primary); text-align: left; font: inherit;
+}
+.menu-item:hover, .menu-item:focus-visible { background: var(--accent-glow); color: var(--accent2); outline: none; }
+.menu-item .tick { width: 12px; color: var(--accent); }
+.menu-item kbd { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--text-muted); }
+.menu-item .swatch { width: 12px; height: 12px; border-radius: 50%; border: 1px solid var(--border-light); }
+.menu-sep { height: 1px; margin: 5px 4px; background: var(--border); }
+.menu-label { padding: 5px 10px 3px; font-size: 10.5px; font-weight: 600; color: var(--text-muted); }
+
+.titlebar-controls span { position: relative; }
+.titlebar-controls span:hover { filter: brightness(1.15); transform: scale(1.12); }
+
+/* Yellow light: the window shrinks to a dock pill */
+#dock {
+  display: none; position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%);
+  padding: 10px 20px; border-radius: 999px; border: 1px solid var(--accent);
+  background: var(--bg-palette); color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  box-shadow: 0 8px 30px var(--accent-glow);
+  animation: dock-bounce 1.6s ease-in-out infinite;
+}
+@keyframes dock-bounce { 50% { transform: translateX(-50%) translateY(-6px); } }
+body.minimized > .titlebar, body.minimized > .vscode-body, body.minimized > .statusbar { display: none; }
+body.minimized #dock { display: block; }
+
+/* Red light: the window "closes" */
+#closedScreen {
+  display: none; position: fixed; inset: 0; z-index: 7000;
+  flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  background: var(--bg-app); color: var(--text-primary); text-align: center; padding: 24px;
+  font-family: 'JetBrains Mono', monospace;
+}
+body.closed #closedScreen { display: flex; }
+body.closed > .titlebar, body.closed > .vscode-body, body.closed > .statusbar { display: none; }
+#closedScreen pre { color: var(--accent2); font-size: 14px; line-height: 1.3; }
+#closedScreen p { color: var(--text-mid); font-size: 13px; min-height: 1.4em; }
+#closedScreen button {
+  padding: 9px 20px; border: 0; border-radius: 6px;
+  background: var(--accent); color: #fff; font: 600 13px 'Inter', sans-serif;
+}
+
+/* Zen mode: just the editor */
+body.zen .actbar, body.zen .sidebar, body.zen .resize-handle-x, body.zen .panel,
+body.zen .resize-handle-y, body.zen > .statusbar, body.zen .tab-bar { display: none; }
+body.no-sidebar .sidebar, body.no-sidebar .resize-handle-x { display: none; }
+body.no-glow .cursor-glow { display: none; }
+
+/* Sidebar: folders that open, and the source control view */
+.tree-folder svg { transition: transform 0.15s; }
+.tree-folder.closed svg { transform: rotate(-90deg); }
+.tree-folder.shut svg { transform: none; }
+.tree-children.hidden { display: none; }
+.tree-note {
+  padding: 3px 10px 3px 30px; font-size: 11.5px; color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.tree-note.link { color: var(--accent2); }
+.tree-note.link:hover, .tree-note:hover { background: var(--accent-glow); }
+#scmView { display: none; overflow-y: auto; flex: 1; padding-bottom: 12px; }
+.sidebar.scm #scmView { display: block; }
+.sidebar.scm .file-tree { display: none; }
+.scm-commit { display: block; padding: 7px 12px; text-decoration: none; border-bottom: 1px solid var(--border); }
+.scm-commit:hover { background: var(--accent-glow); }
+.scm-commit b { display: block; font: 500 12px 'Inter', sans-serif; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.scm-commit span { font: 10.5px 'JetBrains Mono', monospace; color: var(--text-muted); }
+.scm-note { padding: 10px 12px; font: 12px 'Inter', sans-serif; color: var(--text-mid); line-height: 1.5; }
+.scm-note a { color: var(--accent2); }
+
+.sb-item { cursor: pointer; }
+#term-log > div { white-space: pre-wrap; }
+.term-anim { white-space: pre; line-height: 1.25; color: var(--accent2); }
+
+/* ════════════════════════════════════════════════════════
    MOBILE
    ════════════════════════════════════════════════════════ */
 @media (max-width: 680px) {
@@ -1021,18 +1194,32 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
   <div class="tt-desc" id="tt-desc"></div>
 </div>
 
+<!-- ── WINDOW STATES ───────────────────────────────────────── -->
+<button id="dock" onclick="restoreWindow()">🌸 portfolio — click to bring me back</button>
+<div id="closedScreen">
+<pre>
+   _(_)_
+  (_)@(_)
+    (_)
+     |
+   \ | /
+  __\|/__
+</pre>
+  <p id="closedMsg"></p>
+  <button onclick="restoreWindow()">Reopen portfolio</button>
+</div>
+
 <!-- ── TITLE BAR ───────────────────────────────────────────── -->
 <div class="titlebar">
   <div class="titlebar-controls">
-    <span class="tc-close"></span>
-    <span class="tc-min"></span>
-    <span class="tc-max"></span>
+    <span class="tc-close" title="Close" onclick="closeWindow()"></span>
+    <span class="tc-min" title="Minimize" onclick="minimizeWindow()"></span>
+    <span class="tc-max" title="Full screen" onclick="toggleFullscreen()"></span>
   </div>
   <div class="titlebar-menus">
-    <span>File</span><span>Edit</span><span>View</span><span>Go</span>
-    <span onclick="openPalette()">Run</span>
+    <span data-menu="File">File</span><span data-menu="Edit">Edit</span><span data-menu="View">View</span><span data-menu="Go">Go</span><span data-menu="Run">Run</span>
   </div>
-  <div class="titlebar-center">portfolio — afafmaliha0716.github.io</div>
+  <div class="titlebar-center" id="titleCenter">portfolio — afafmaliha0716.github.io</div>
 </div>
 
 <!-- ── VSCODE BODY ─────────────────────────────────────────── -->
@@ -1040,20 +1227,20 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
 
   <!-- Activity Bar -->
   <div class="actbar">
-    <div class="act-icon active" title="Explorer">
+    <div class="act-icon active" id="act-explorer" title="Explorer (Ctrl+B)" onclick="showSidebar('explorer')">
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
     </div>
     <div class="act-icon" title="Search (Ctrl+Shift+P)" onclick="openPalette()">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     </div>
-    <div class="act-icon" title="Source Control">
+    <div class="act-icon" id="act-scm" title="Source Control" onclick="showSidebar('scm')">
       <svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 9v6M18 15v-4a4 4 0 0 0-4-4H9"/></svg>
     </div>
-    <div class="act-icon" title="GitHub" onclick="window.open('https://github.com/afafmaliha0716','_blank')">
+    <div class="act-icon" title="GitHub" onclick="window.open('https://github.com/afafMaliha0716','_blank')">
       <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
     </div>
     <div class="act-bottom">
-      <div class="act-icon" title="Settings">
+      <div class="act-icon" id="act-settings" title="Settings" onclick="openMenu('Settings', this, event)">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       </div>
     </div>
@@ -1062,29 +1249,44 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
   <!-- Sidebar -->
   <div class="sidebar">
     <div class="sidebar-hdr">
-      <span>Explorer</span>
+      <span id="sidebarTitle">Explorer</span>
     </div>
+    <div id="scmView"></div>
     <div class="file-tree">
       <div class="tree-group">
-        <div class="tree-folder">
+        <div class="tree-folder" onclick="toggleFolder(this, 'treeFiles')">
           <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
           PORTFOLIO
         </div>
+        <div class="tree-children" id="treeFiles">
         <div class="tree-file active" id="tf-about"      onclick="openTab('about')">      <span class="f-dot ts"></span>about.ts</div>
         <div class="tree-file"        id="tf-projects"   onclick="openTab('projects')">   <span class="f-dot tsx"></span>projects.tsx</div>
         <div class="tree-file"        id="tf-experience" onclick="openTab('experience')"> <span class="f-dot tsx"></span>experience.tsx</div>
         <div class="tree-file"        id="tf-skills"     onclick="openTab('skills')">     <span class="f-dot json"></span>skills.json</div>
         <div class="tree-file"        id="tf-leetcode"   onclick="openTab('leetcode')">   <span class="f-dot py"></span>leetcode.py</div>
         <div class="tree-file"        id="tf-contact"    onclick="openTab('contact')">    <span class="f-dot ts"></span>contact.ts</div>
+        </div>
       </div>
       <div class="tree-group" style="margin-top:8px;">
-        <div class="tree-folder">
-          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <div class="tree-folder closed" onclick="toggleFolder(this, 'treeModules')">
+          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
           node_modules
         </div>
-        <div class="tree-folder">
-          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <div class="tree-children hidden" id="treeModules">
+          <div class="tree-note" onclick="modulesJoke()">matcha@latest</div>
+          <div class="tree-note" onclick="modulesJoke()">ambition@3.0.0</div>
+          <div class="tree-note" onclick="modulesJoke()">leetcode@2-a-day</div>
+          <div class="tree-note" onclick="modulesJoke()">sleep@0.0.1 (deprecated)</div>
+          <div class="tree-note" onclick="modulesJoke()">hook-em@🤘</div>
+          <div class="tree-note" onclick="modulesJoke()">…and 9,482 more</div>
+        </div>
+        <div class="tree-folder closed" onclick="toggleFolder(this, 'treeGit')">
+          <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
           .git
+        </div>
+        <div class="tree-children hidden" id="treeGit">
+          <div class="tree-note">HEAD → main</div>
+          <div class="tree-note link" onclick="showSidebar('scm')">see the real commits →</div>
         </div>
       </div>
     </div>
@@ -1376,7 +1578,7 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
         <div id="term-log"></div>
         <div class="term-input-row">
           <span class="term-prompt-str">afaf@portfolio:~$ </span>
-          <input class="term-input" id="termInput" placeholder="try: leetcode, ls, whoami, help" onkeydown="termKey(event)" autocomplete="off" spellcheck="false" />
+          <input class="term-input" id="termInput" placeholder="try: bloom, leetcode, theme, help" onkeydown="termKey(event)" autocomplete="off" spellcheck="false" />
         </div>
       </div>
       <div class="problems-body" id="problems-body">
@@ -1394,7 +1596,7 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
 
 <!-- Status Bar -->
 <div class="statusbar">
-  <div class="sb-item sb-branch">
+  <div class="sb-item sb-branch" onclick="showSidebar('scm')" title="Source control">
     <svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 9v6M18 15v-4a4 4 0 0 0-4-4H9"/></svg>
     main
   </div>
@@ -1402,11 +1604,11 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
   <div class="sb-item sb-lc" id="sb-lc" onclick="openTab('leetcode')" title="Open leetcode.py"></div>
   <div class="sb-item" id="sb-file">about.ts</div>
   <div class="sb-right">
-    <span class="sb-item" id="sb-status">● 3rd yr CS @ UT Austin</span>
-    <span class="sb-item">Ln 1, Col 1</span>
-    <span class="sb-item">UTF-8</span>
-    <span class="sb-item" id="sb-lang">TypeScript</span>
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark theme" id="themeBtn">☀️</button>
+    <span class="sb-item" id="sb-status" onclick="openTab('about')">● 3rd yr CS @ UT Austin</span>
+    <span class="sb-item" id="sb-pos" onclick="openPalette()" title="Go to file">Ln 1, Col 1</span>
+    <span class="sb-item" onclick="encodingNote()" title="Encoding">UTF-8</span>
+    <span class="sb-item" id="sb-lang" onclick="openTab('skills')" title="See every language I use">TypeScript</span>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Next color theme" id="themeBtn">☀️</button>
   </div>
 </div>
 
@@ -1474,25 +1676,37 @@ document.addEventListener('keydown', e => {
     const n = parseInt(e.key);
     if (n >= 1 && n <= ALL_TABS.length) { e.preventDefault(); openTab(ALL_TABS[n-1]); }
   }
-  if (e.key === 'Escape') closePalette();
+  if (e.key === 'Escape') { closePalette(); closeMenu(); if (document.body.classList.contains('zen')) toggleZen(); }
+  if ((e.ctrlKey || e.metaKey) && !e.shiftKey && e.key.toLowerCase() === 'b') { e.preventDefault(); toggleSidebar(); }
+  if ((e.ctrlKey || e.metaKey) && !e.shiftKey && e.key.toLowerCase() === 'j') { e.preventDefault(); togglePanel(); }
 });
 
 /* ══════════════════════════════════════════════════════
    THEME TOGGLE
 ══════════════════════════════════════════════════════ */
-let dark = true;
+const THEMES = {
+  dark:     { label: 'Night Pink',        icon: '🌙', swatch: '#e040a0' },
+  light:    { label: 'Day Pink',          icon: '☀️', swatch: '#f2adc9' },
+  lavender: { label: 'Lavender Night',    icon: '🔮', swatch: '#a78bfa' },
+  matcha:   { label: 'Strawberry Matcha', icon: '🍵', swatch: '#8fbf7a' },
+};
+let theme = 'dark';
+function setTheme(name, quiet) {
+  if (!THEMES[name]) return false;
+  theme = name;
+  document.documentElement.setAttribute('data-theme', name);
+  document.getElementById('themeBtn').textContent = THEMES[name].icon;
+  if (!quiet) termLog(`<span class="t-ok">✓</span> <span class="t-out">Theme switched to ${THEMES[name].label}</span>`);
+  try { localStorage.setItem('afaf-theme', name); } catch(e){}
+  return true;
+}
+// The status bar button steps through every theme.
 function toggleTheme() {
-  dark = !dark;
-  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-  document.getElementById('themeBtn').textContent = dark ? '☀️' : '🌙';
-  termLog(`<span class="t-ok">✓</span> <span class="t-out">Theme switched to ${dark ? 'Night Pink (dark)' : 'Day Pink (light)'}</span>`);
-  try { localStorage.setItem('afaf-theme', dark ? 'dark' : 'light'); } catch(e){}
+  const names = Object.keys(THEMES);
+  setTheme(names[(names.indexOf(theme) + 1) % names.length]);
 }
 // Restore saved theme
-try {
-  const saved = localStorage.getItem('afaf-theme');
-  if (saved === 'light') { dark = false; document.documentElement.setAttribute('data-theme','light'); document.getElementById('themeBtn').textContent = '🌙'; }
-} catch(e){}
+try { setTheme(localStorage.getItem('afaf-theme') || 'dark', true); } catch(e){}
 
 /* ══════════════════════════════════════════════════════
    COMMAND PALETTE
@@ -1504,7 +1718,9 @@ const CMD_ITEMS = [
   { name:'skills.json',    desc:'Languages, tools & more',  action:()=>openTab('skills'),     dot:'json', kbd:'Ctrl+4' },
   { name:'leetcode.py',    desc:'Live LeetCode tracker',    action:()=>openTab('leetcode'),   dot:'py',   kbd:'Ctrl+5' },
   { name:'contact.ts',     desc:'Get in touch',             action:()=>openTab('contact'),    dot:'ts',   kbd:'Ctrl+6' },
-  { name:'Toggle theme',   desc:'Switch light / dark mode', action:toggleTheme,               dot:'',     kbd:'' },
+  ...Object.entries(THEMES).map(([id, t]) => ({ name:`Theme: ${t.label}`, desc:'Change the color theme', action:()=>setTheme(id), dot:'', kbd:'' })),
+  { name:'Zen mode',       desc:'Just the editor. Esc to leave', action:()=>toggleZen(), dot:'', kbd:'' },
+  { name:'Run: bloom',     desc:'Grow a flower in the terminal', action:()=>runInTerminal('bloom'), dot:'', kbd:'' },
   { name:'GitHub',         desc:'github.com/afafmaliha0716',action:()=>window.open('https://github.com/afafmaliha0716','_blank'), dot:'', kbd:'' },
 ];
 let cmdFocusIdx = 0;
@@ -1554,7 +1770,20 @@ function cmdKey(e) {
    TERMINAL
 ══════════════════════════════════════════════════════ */
 const RESPONSES = {
-  help:    () => `<span class="t-out">Available commands:</span>\n<span class="t-ok">  ls</span>       <span class="t-out">— list portfolio files</span>\n<span class="t-ok">  whoami</span>   <span class="t-out">— about Afaf</span>\n<span class="t-ok">  open &lt;file&gt;</span> <span class="t-out">— open a section</span>\n<span class="t-ok">  leetcode</span> <span class="t-out">— did Afaf do her problems today?</span>\n<span class="t-ok">  pwd</span>      <span class="t-out">— where am I?</span>\n<span class="t-ok">  clear</span>    <span class="t-out">— clear terminal</span>\n<span class="t-ok">  hook 'em</span> <span class="t-out">— 🤘</span>`,
+  help:    () => [
+    ['ls', 'list the files'], ['open &lt;file&gt;', 'open a section'], ['whoami', 'about Afaf'],
+    ['leetcode', 'did Afaf do her problems today?'], ['theme', 'list or switch color themes'],
+    ['bloom', 'grow a flower'], ['deploy', 'ship it'], ['matcha', 'brew a cup'], ['sparkle', '✦'],
+    ['party', 'confetti'], ['zen', 'just the editor'], ['clear', 'clear the terminal'], ["hook 'em", '🤘'],
+  ].map(([c, d]) => `<span class="t-ok">  ${c.padEnd(12)}</span><span class="t-out">${d}</span>`).join('\n'),
+  theme:   () => `<span class="t-out">Themes: </span>` + Object.entries(THEMES).map(([id, t]) => `<span class="${id === theme ? 't-ok' : 't-path'}">${id}</span>`).join('<span class="t-out">, </span>') + `<span class="t-out"> — try: theme matcha</span>`,
+  bloom:   () => { animBloom(); },
+  deploy:  () => { animDeploy(); },
+  matcha:  () => { animMatcha(); },
+  sparkle: () => { animSparkle(); },
+  party:   () => { confetti(); return `<span class="t-ok">🎉 party mode.</span> <span class="t-out">You deserve it.</span>`; },
+  zen:     () => { toggleZen(); return `<span class="t-out">Zen mode. Press Esc to come back.</span>`; },
+  exit:    () => { closeWindow(); },
   ls:      () => `<span class="t-path">about.ts &nbsp; projects.tsx &nbsp; experience.tsx &nbsp; skills.json &nbsp; leetcode.py &nbsp; contact.ts</span>`,
   whoami:  () => `<span class="t-ok">Afaf Maliha</span> <span class="t-out">— CS @ UT Austin, class of 2028. Builds Remi, runs Khidmah Collective, owes LeetCode two problems a day.</span>`,
   pwd:     () => `<span class="t-path">/home/afafmaliha0716/portfolio</span>`,
@@ -1584,15 +1813,95 @@ function termKey(e) {
   const cmd = inp.value.trim().toLowerCase();
   inp.value = '';
   if (!cmd) return;
-  termLog(`<span class="t-pmt">afaf@portfolio:~$</span> <span class="t-cmd">${cmd}</span>`);
+  runCommand(cmd);
+}
+
+function runCommand(cmd) {
+  const shown = lcEsc(cmd);
+  termLog(`<span class="t-pmt">afaf@portfolio:~$</span> <span class="t-cmd">${shown}</span>`);
   if (cmd === 'clear') { clearTerminal(); return; }
+  if (cmd.startsWith('theme ')) {
+    const wanted = cmd.slice(6).trim();
+    const id = Object.keys(THEMES).find((k) => k === wanted || THEMES[k].label.toLowerCase() === wanted);
+    if (!id || !setTheme(id)) termLog(`<span class="t-err">theme: no theme called "${lcEsc(wanted)}"</span> <span class="t-out">(try: theme)</span>`);
+    return;
+  }
+  if (cmd.startsWith('sudo')) { termLog(`<span class="t-err">afaf is not in the sudoers file.</span> <span class="t-out">This incident will be reported to Bevo.</span>`); return; }
+  if (cmd.startsWith('rm ')) { termLog(`<span class="t-err">rm: permission denied</span> <span class="t-out">— I worked hard on this.</span>`); return; }
   const fn = RESPONSES[cmd];
   if (fn) {
     const out = fn();
     if (out) termLog(out);
   } else {
-    termLog(`<span class="t-err">bash: ${cmd}: command not found</span> <span class="t-out">(try: help)</span>`);
+    termLog(`<span class="t-err">bash: ${shown}: command not found</span> <span class="t-out">(try: help)</span>`);
   }
+}
+
+/** Runs a command as if it had been typed, opening the terminal first. */
+function runInTerminal(cmd) {
+  if (document.body.classList.contains('zen')) toggleZen();
+  if (panelCollapsed) togglePanel();
+  switchPanel('terminal');
+  runCommand(cmd);
+}
+
+/** Plays text frames in one terminal line, like a tiny flipbook. */
+function termAnimate(frames, ms, done) {
+  const log = document.getElementById('term-log');
+  const el = document.createElement('div');
+  el.className = 'term-anim';
+  log.appendChild(el);
+  let i = 0;
+  const tick = () => {
+    el.textContent = frames[i];
+    document.getElementById('terminal-body').scrollTop = 99999;
+    i += 1;
+    if (i < frames.length) setTimeout(tick, ms);
+    else if (done) done(el);
+  };
+  tick();
+}
+
+const BLOOM = [
+  ['', '', '', '', '', '  _________'],
+  ['', '', '', '', '      .', '  ____|____'],
+  ['', '', '', '      |', '      |', '  ____|____'],
+  ['', '', '      |', '    \\ | /', '     \\|/', '  ____|____'],
+  ['', '     (_)', '      |', '    \\ | /', '     \\|/', '  ____|____'],
+  ['    _(_)_', '   (_)@(_)', '     (_)', '    \\ | /', '     \\|/', '  ____|____'],
+].map((lines) => lines.join('\n'));
+
+function animBloom() {
+  termAnimate(BLOOM, 320, () => termLog(`<span class="t-ok">🌸 bloomed.</span> <span class="t-out">Thanks for stopping by my corner of the internet.</span>`));
+}
+
+function animDeploy() {
+  const steps = ['linting vibes', 'running tests', 'bundling pink', 'pushing to main'];
+  const frames = [];
+  for (let i = 0; i <= 20; i++) {
+    const step = steps[Math.min(steps.length - 1, Math.floor(i / 5.01))];
+    frames.push(`[${'█'.repeat(i)}${'░'.repeat(20 - i)}] ${String(i * 5).padStart(3)}%  ${step}`);
+  }
+  termAnimate(frames, 90, () => termLog(`<span class="t-ok">✓ shipped.</span> <span class="t-out">Zero dependencies, one HTML file, no regrets.</span>`));
+}
+
+function animMatcha() {
+  const cup = ['   ( _ )', '  .-----.', '  |     |]', "  '-----'"];
+  const steam = ['    ~  ~', '   ~  ~ ', '    ~ ~ ', '   ~   ~'];
+  const frames = [];
+  for (let i = 0; i < 12; i++) frames.push([steam[i % 4], steam[(i + 2) % 4], ...cup.slice(1)].join('\n'));
+  termAnimate(frames, 160, () => termLog(`<span class="t-ok">🍵 matcha ready.</span> <span class="t-out">Focus +10 for the next LeetCode problem.</span>`));
+}
+
+function animSparkle() {
+  const glyphs = ['✦', '･', '✧', '˚', '*', ' ', ' '];
+  const frames = [];
+  for (let f = 0; f < 16; f++) {
+    let line = '';
+    for (let i = 0; i < 44; i++) line += glyphs[(i * 7 + f * 3 + (i % 5) * f) % glyphs.length];
+    frames.push(line);
+  }
+  termAnimate(frames, 110, (el) => { el.textContent = '✦ ･ ✧  you found the sparkles. have a lovely day.  ✧ ･ ✦'; });
 }
 
 function clearTerminal() {
@@ -1734,6 +2043,253 @@ fetch('data/leetcode.json', { cache: 'no-store' })
     document.getElementById('lcBuild').innerHTML =
       '<span class="lc-build-icon">…</span><div><div class="lc-build-title">Waiting for the first sync</div><div class="lc-build-sub">The tracker fills in after its first hourly run.</div></div>';
   });
+
+/* ══════════════════════════════════════════════════════
+   TITLE BAR MENUS
+══════════════════════════════════════════════════════ */
+const SITE_URL = location.origin + location.pathname;
+document.getElementById('titleCenter').textContent =
+  'portfolio — ' + (location.host || 'afafmaliha0716.github.io') + location.pathname.replace(/\/(index\.html)?$/, '');
+
+const go = (url) => () => window.open(url, '_blank', 'noopener');
+const themeItems = () => Object.entries(THEMES).map(([id, t]) =>
+  ({ label: t.label, tick: id === theme, swatch: t.swatch, run: () => setTheme(id) }));
+
+const MENUS = {
+  File: () => [
+    { label: 'Open File…', kbd: 'Ctrl+Shift+P', run: openPalette },
+    { label: 'New Message to Afaf…', run: openContactPlugin },
+    { label: 'Copy Link to This Site', run: copyLink },
+    { sep: true },
+    { label: 'Close Tab', run: () => current && closeTab({ stopPropagation() {} }, current) },
+    { label: 'Close Window', run: closeWindow },
+  ],
+  Edit: () => [
+    { heading: 'Color theme' },
+    ...themeItems(),
+    { sep: true },
+    { label: 'Bigger Text', kbd: 'Ctrl +', run: () => zoomEditor(0.1) },
+    { label: 'Smaller Text', kbd: 'Ctrl -', run: () => zoomEditor(-0.1) },
+    { label: 'Reset Text Size', run: () => zoomEditor(0) },
+    { sep: true },
+    { label: 'Cursor Glow', tick: !document.body.classList.contains('no-glow'), run: () => document.body.classList.toggle('no-glow') },
+  ],
+  View: () => [
+    { label: 'Sidebar', kbd: 'Ctrl+B', tick: !document.body.classList.contains('no-sidebar'), run: toggleSidebar },
+    { label: 'Terminal', kbd: 'Ctrl+J', tick: !panelCollapsed, run: togglePanel },
+    { label: 'Problems', run: () => { if (panelCollapsed) togglePanel(); switchPanel('problems'); } },
+    { label: 'Source Control', run: () => showSidebar('scm') },
+    { sep: true },
+    { label: 'Zen Mode', kbd: 'Esc to leave', run: toggleZen },
+    { label: 'Full Screen', run: toggleFullscreen },
+  ],
+  Go: () => [
+    ...ALL_TABS.map((id, i) => ({ label: TAB_META[id].name, kbd: `Ctrl+${i + 1}`, tick: id === current, run: () => openTab(id) })),
+    { sep: true },
+    { label: 'GitHub ↗', run: go('https://github.com/afafMaliha0716') },
+    { label: 'LinkedIn ↗', run: go('https://www.linkedin.com/in/afaf-maliha-cs') },
+    { label: 'LeetCode ↗', run: go('https://leetcode.com/u/afafMaliha0716/') },
+  ],
+  Run: () => [
+    { label: 'Command Palette…', kbd: 'Ctrl+Shift+P', run: openPalette },
+    { sep: true },
+    { label: 'bloom — grow a flower', run: () => runInTerminal('bloom') },
+    { label: 'deploy — ship it', run: () => runInTerminal('deploy') },
+    { label: 'matcha — brew a cup', run: () => runInTerminal('matcha') },
+    { label: 'leetcode — check on Afaf', run: () => runInTerminal('leetcode') },
+    { label: 'party — confetti', run: () => runInTerminal('party') },
+  ],
+  Settings: () => [
+    { heading: 'Color theme' },
+    ...themeItems(),
+    { sep: true },
+    { label: 'Bigger Text', run: () => zoomEditor(0.1) },
+    { label: 'Smaller Text', run: () => zoomEditor(-0.1) },
+    { label: 'Cursor Glow', tick: !document.body.classList.contains('no-glow'), run: () => document.body.classList.toggle('no-glow') },
+  ],
+};
+
+let openMenuName = null;
+function closeMenu() {
+  document.querySelector('.menu')?.remove();
+  document.querySelectorAll('.titlebar-menus span.open').forEach((el) => el.classList.remove('open'));
+  openMenuName = null;
+}
+function openMenu(name, anchor, event) {
+  event?.stopPropagation();
+  if (openMenuName === name) { closeMenu(); return; }
+  closeMenu();
+  openMenuName = name;
+  if (anchor.dataset.menu) anchor.classList.add('open');
+
+  const menu = document.createElement('div');
+  menu.className = 'menu';
+  menu.setAttribute('role', 'menu');
+  for (const item of MENUS[name]()) {
+    if (item.sep) { menu.insertAdjacentHTML('beforeend', '<div class="menu-sep"></div>'); continue; }
+    if (item.heading) { menu.insertAdjacentHTML('beforeend', `<div class="menu-label">${item.heading}</div>`); continue; }
+    const button = document.createElement('button');
+    button.className = 'menu-item';
+    button.setAttribute('role', 'menuitem');
+    button.innerHTML =
+      ('tick' in item ? `<span class="tick">${item.tick ? '✓' : ''}</span>` : '') +
+      (item.swatch ? `<span class="swatch" style="background:${item.swatch}"></span>` : '') +
+      `<span>${item.label}</span>` + (item.kbd ? `<kbd>${item.kbd}</kbd>` : '');
+    button.onclick = (e) => { e.stopPropagation(); closeMenu(); item.run(); };
+    menu.appendChild(button);
+  }
+  document.body.appendChild(menu);
+
+  // Title bar menus drop down; the settings gear opens upward.
+  const r = anchor.getBoundingClientRect();
+  if (anchor.dataset.menu) {
+    menu.style.left = r.left + 'px';
+    menu.style.top = r.bottom + 4 + 'px';
+  } else {
+    menu.style.left = r.right + 6 + 'px';
+    menu.style.bottom = Math.max(8, window.innerHeight - r.bottom) + 'px';
+  }
+}
+document.querySelectorAll('.titlebar-menus span').forEach((el) => {
+  el.addEventListener('click', (e) => openMenu(el.dataset.menu, el, e));
+  // Once one menu is open, hovering the others switches, like a real menu bar.
+  el.addEventListener('mouseenter', (e) => { if (openMenuName && openMenuName !== el.dataset.menu) openMenu(el.dataset.menu, el, e); });
+});
+document.addEventListener('click', closeMenu);
+
+function copyLink() {
+  const done = () => showNotif({ title: '🔗 Link copied', msg: SITE_URL });
+  if (navigator.clipboard) navigator.clipboard.writeText(SITE_URL).then(done, done); else done();
+}
+
+let editorZoom = 1;
+function zoomEditor(delta) {
+  editorZoom = delta === 0 ? 1 : Math.min(1.6, Math.max(0.8, editorZoom + delta));
+  document.querySelectorAll('.editor-scroll').forEach((el) => { el.style.zoom = editorZoom; });
+}
+document.addEventListener('keydown', (e) => {
+  if (!(e.ctrlKey || e.metaKey)) return;
+  if (e.key === '=' || e.key === '+') { e.preventDefault(); zoomEditor(0.1); }
+  if (e.key === '-') { e.preventDefault(); zoomEditor(-0.1); }
+});
+
+/* ══════════════════════════════════════════════════════
+   WINDOW CONTROLS, ZEN MODE
+══════════════════════════════════════════════════════ */
+const CLOSED_LINES = [
+  'You closed the window. Bold move.',
+  'It was a nice window, too.',
+  'Luckily this one reopens.',
+];
+let closedTimer = null;
+function closeWindow() {
+  closeMenu();
+  document.body.classList.remove('minimized', 'zen');
+  document.body.classList.add('closed');
+  // Type the lines out one character at a time.
+  const el = document.getElementById('closedMsg');
+  const text = CLOSED_LINES.join(' ');
+  let i = 0;
+  clearInterval(closedTimer);
+  el.textContent = '';
+  closedTimer = setInterval(() => {
+    el.textContent = text.slice(0, ++i) + (i < text.length ? '▍' : '');
+    if (i >= text.length) clearInterval(closedTimer);
+  }, 35);
+}
+function minimizeWindow() {
+  closeMenu();
+  document.body.classList.add('minimized');
+}
+function restoreWindow() {
+  clearInterval(closedTimer);
+  document.body.classList.remove('minimized', 'closed');
+}
+function toggleFullscreen() {
+  if (document.fullscreenElement) { document.exitFullscreen(); return; }
+  const request = document.documentElement.requestFullscreen?.();
+  // Where full screen isn't allowed (some phones, embeds), zen mode is the next best thing.
+  if (!request) toggleZen(); else request.catch(toggleZen);
+}
+function toggleZen() {
+  const on = document.body.classList.toggle('zen');
+  if (on) showNotif({ title: '🧘 Zen mode', msg: 'Just the editor. Press Esc to bring everything back.' });
+}
+
+/* ══════════════════════════════════════════════════════
+   SIDEBAR: EXPLORER, FOLDERS, SOURCE CONTROL
+══════════════════════════════════════════════════════ */
+let sidebarView = 'explorer';
+function toggleSidebar() {
+  document.body.classList.toggle('no-sidebar');
+}
+function showSidebar(view) {
+  const hidden = document.body.classList.contains('no-sidebar');
+  // Clicking the icon for the view that's already showing hides the sidebar.
+  if (view === sidebarView && !hidden) { toggleSidebar(); return; }
+  document.body.classList.remove('no-sidebar', 'zen');
+  sidebarView = view;
+  document.querySelector('.sidebar').classList.toggle('scm', view === 'scm');
+  document.getElementById('sidebarTitle').textContent = view === 'scm' ? 'Source Control' : 'Explorer';
+  document.getElementById('act-explorer').classList.toggle('active', view === 'explorer');
+  document.getElementById('act-scm').classList.toggle('active', view === 'scm');
+  if (view === 'scm') loadCommits();
+}
+function toggleFolder(folder, childrenId) {
+  const hidden = document.getElementById(childrenId).classList.toggle('hidden');
+  folder.classList.toggle('closed', hidden);
+}
+const MODULE_JOKES = [
+  "It's node_modules. Nobody really knows what's in here.",
+  'This folder weighs more than the rest of the site combined.',
+  'Fun fact: the real site has zero dependencies. These are emotional dependencies.',
+];
+let jokeIdx = 0;
+function modulesJoke() {
+  showNotif({ title: '📦 node_modules', msg: MODULE_JOKES[jokeIdx++ % MODULE_JOKES.length] });
+}
+
+// Real commits, straight from GitHub. On a project page the repo is the first
+// path segment; on the user page it is <user>.github.io.
+const REPO_OWNER = 'afafMaliha0716';
+const REPO_NAME = (location.hostname.endsWith('github.io') && location.pathname.split('/')[1]) || 'afafmaliha0716.github.io';
+const REPO_URL = `https://github.com/${REPO_OWNER}/${REPO_NAME}`;
+let commitsLoaded = false;
+function loadCommits() {
+  if (commitsLoaded) return;
+  commitsLoaded = true;
+  const view = document.getElementById('scmView');
+  view.innerHTML = '<p class="scm-note">Fetching commits…</p>';
+  fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/commits?per_page=30`)
+    .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.status))))
+    .then((commits) => {
+      // The hourly LeetCode bot commits are noise here.
+      const mine = commits.filter((c) => c.commit.author.name !== 'github-actions[bot]').slice(0, 12);
+      view.innerHTML = mine.map((c) => {
+        const when = lcAgo(Date.parse(c.commit.author.date) / 1000);
+        const subject = lcEsc(c.commit.message.split('\n')[0]);
+        return `<a class="scm-commit" href="${c.html_url}" target="_blank" rel="noopener" title="${subject}"><b>${subject}</b><span>${c.sha.slice(0, 7)} · ${when}</span></a>`;
+      }).join('') + `<p class="scm-note">Recent commits to this site. <a href="${REPO_URL}/commits/main" target="_blank" rel="noopener">See them all ↗</a></p>`;
+    })
+    .catch(() => {
+      commitsLoaded = false;
+      view.innerHTML = `<p class="scm-note">Couldn't reach GitHub just now. <a href="${REPO_URL}/commits/main" target="_blank" rel="noopener">See the commits there ↗</a></p>`;
+    });
+}
+
+/* ══════════════════════════════════════════════════════
+   STATUS BAR EXTRAS
+══════════════════════════════════════════════════════ */
+// Ln/Col follows the line under the cursor, like a real editor.
+document.querySelectorAll('.cl').forEach((line) => {
+  line.addEventListener('mouseenter', () => {
+    const n = line.querySelector('.ln')?.textContent;
+    if (n) document.getElementById('sb-pos').textContent = `Ln ${n}, Col 1`;
+  });
+});
+function encodingNote() {
+  showNotif({ title: 'UTF-8', msg: "Handles every script, including Arabic, which I'm minoring in. مرحبا 👋" });
+}
 
 /* ══════════════════════════════════════════════════════
    STATUS BAR ROTATING MESSAGE
@@ -1942,6 +2498,9 @@ document.addEventListener('keydown', e => {
 function launchKonami() {
   showNotif({ title: '🤘 HOOK \'EM HORNS', msg: 'You found the easter egg. Afaf appreciates your dedication to clicking arrow keys.' });
   termLog(`<span class="t-ok">🤘 HOOK 'EM HORNS 🤘</span>`);
+  confetti();
+}
+function confetti() {
   // Pink confetti burst
   for (let i = 0; i < 40; i++) {
     const p = document.createElement('div');
