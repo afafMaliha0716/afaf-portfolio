@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Afaf Maliha — Portfolio</title>
+  <title>Afaf Maliha — Software Engineer and Product Manager</title>
+  <meta name="description" content="Afaf Maliha is a Computer Science student at UT Austin who builds products end to end: Remi, FocusDJ, Asteria, and a live LeetCode tracker." />
+  <meta property="og:title" content="Afaf Maliha — Software Engineer and Product Manager" />
+  <meta property="og:description" content="CS at UT Austin. Projects, experience, and a live LeetCode tracker, in a pink VS Code." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://afafmaliha0716.github.io/" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
 /* ════════════════════════════════════════════════════════
@@ -893,11 +898,64 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
 ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 4px; }
 
 /* ════════════════════════════════════════════════════════
+   LEETCODE TRACKER
+   ════════════════════════════════════════════════════════ */
+.f-dot.py, .tdot.py { background: var(--green); }
+.lc-wrap { margin: 6px 52px 10px; font-family: 'Inter', sans-serif; max-width: 760px; }
+.lc-build {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 14px 18px; border-radius: 8px;
+  border: 1px solid var(--border); border-left: 3px solid var(--text-muted);
+  background: rgba(255,255,255,0.03);
+}
+.lc-build.fail { border-left-color: var(--red); }
+.lc-build.warn { border-left-color: var(--yellow); }
+.lc-build.pass { border-left-color: var(--green); }
+.lc-build-icon { font-size: 22px; line-height: 1; }
+.lc-build.fail .lc-build-icon { color: var(--red); }
+.lc-build.warn .lc-build-icon { color: var(--yellow); }
+.lc-build.pass .lc-build-icon { color: var(--green); }
+.lc-build-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+.lc-build-sub { font-size: 12.5px; color: var(--text-mid); margin-top: 2px; }
+.lc-pips { display: flex; gap: 5px; margin-left: auto; }
+.lc-pip { width: 26px; height: 8px; border-radius: 4px; background: var(--border-light); }
+.lc-pip.on { background: var(--green); }
+.lc-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin-top: 8px; }
+.lc-stat { padding: 12px 14px; border: 1px solid var(--border); border-radius: 8px; background: rgba(255,255,255,0.03); }
+.lc-stat b { display: block; font-size: 24px; font-weight: 700; color: var(--text-primary); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.lc-stat span { font-size: 11.5px; color: var(--text-mid); }
+.lc-bars { margin-top: 14px; display: grid; gap: 8px; }
+.lc-bar-row { display: grid; grid-template-columns: 62px 1fr 78px; align-items: center; gap: 10px; font-size: 12px; color: var(--text-mid); }
+.lc-bar-row .num { text-align: right; font-variant-numeric: tabular-nums; }
+.lc-bar { height: 8px; border-radius: 4px; background: var(--border-light); overflow: hidden; }
+.lc-bar i { display: block; height: 100%; border-radius: 4px; min-width: 2px; }
+.lc-h { font-size: 12px; font-weight: 600; color: var(--text-mid); margin: 18px 0 8px; }
+.lc-heat { display: grid; grid-template-rows: repeat(7, 12px); grid-auto-flow: column; grid-auto-columns: 12px; gap: 3px; overflow-x: auto; padding-bottom: 4px; }
+.lc-cell { width: 12px; height: 12px; border-radius: 3px; background: var(--border-light); }
+.lc-cell.l1 { background: color-mix(in srgb, var(--accent) 35%, var(--border-light)); }
+.lc-cell.l2 { background: color-mix(in srgb, var(--accent) 60%, var(--border-light)); }
+.lc-cell.l3 { background: color-mix(in srgb, var(--accent) 80%, var(--border-light)); }
+.lc-cell.l4 { background: var(--accent2); }
+.lc-cell.future { visibility: hidden; }
+.lc-recent { list-style: none; padding: 0; }
+.lc-recent li { display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 12.5px; }
+.lc-recent a { color: var(--text-primary); text-decoration: none; }
+.lc-recent a:hover { color: var(--accent2); text-decoration: underline; }
+.lc-recent time { color: var(--text-muted); white-space: nowrap; }
+.lc-foot { margin-top: 14px; font-size: 11.5px; color: var(--text-muted); }
+.lc-foot a { color: var(--accent2); }
+.sb-lc { cursor: pointer; font-weight: 600; }
+.sb-lc.fail { background: var(--red); color: #2a0714; padding: 0 6px; border-radius: 2px; }
+.sb-lc.warn { background: var(--yellow); color: #2a1a00; padding: 0 6px; border-radius: 2px; }
+
+/* ════════════════════════════════════════════════════════
    MOBILE
    ════════════════════════════════════════════════════════ */
 @media (max-width: 680px) {
   .sidebar, .actbar { display: none; }
   .titlebar-menus { display: none; }
+  .lc-wrap, .proj-card, .exp-card, .skills-grid, .bio-block { margin-left: 14px; margin-right: 14px; }
+  .lc-pips { margin-left: 0; }
 }
 </style>
 </head>
@@ -1016,6 +1074,7 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
         <div class="tree-file"        id="tf-projects"   onclick="openTab('projects')">   <span class="f-dot tsx"></span>projects.tsx</div>
         <div class="tree-file"        id="tf-experience" onclick="openTab('experience')"> <span class="f-dot tsx"></span>experience.tsx</div>
         <div class="tree-file"        id="tf-skills"     onclick="openTab('skills')">     <span class="f-dot json"></span>skills.json</div>
+        <div class="tree-file"        id="tf-leetcode"   onclick="openTab('leetcode')">   <span class="f-dot py"></span>leetcode.py</div>
         <div class="tree-file"        id="tf-contact"    onclick="openTab('contact')">    <span class="f-dot ts"></span>contact.ts</div>
       </div>
       <div class="tree-group" style="margin-top:8px;">
@@ -1050,13 +1109,13 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
         <div class="cl"><span class="ln">4</span><span class="lc"><span class="cmt"> * @roles   Software Engineer · Product Manager</span></span></div>
         <div class="cl"><span class="ln">5</span><span class="lc"><span class="cmt"> */</span></span></div>
         <div class="cl"><span class="ln">6</span><span class="lc"></span></div>
-        <div class="cl"><span class="ln">7</span><span class="lc"><span class="kw">const</span> <span class="fn" data-tt="type: const afaf" data-ttd="3rd year CS student at UT Austin who builds things that matter ✦">afaf</span> <span class="kw">=</span> {</span></div>
+        <div class="cl"><span class="ln">7</span><span class="lc"><span class="kw">const</span> <span class="fn" data-tt="type: const afaf" data-ttd="CS at UT Austin, Arabic minor, class of 2028. Founder of Khidmah Collective.">afaf</span> <span class="kw">=</span> {</span></div>
         <div class="cl"><span class="ln">8</span><span class="lc">  <span class="prop">name</span>:       <span class="str">"Afaf Maliha"</span>,</span></div>
         <div class="cl"><span class="ln">9</span><span class="lc">  <span class="prop">university</span>: <span class="str">"The University of Texas at Austin"</span>,</span></div>
         <div class="cl"><span class="ln">10</span><span class="lc">  <span class="prop">major</span>:      <span class="str">"Computer Science"</span>,</span></div>
-        <div class="cl"><span class="ln">11</span><span class="lc">  <span class="prop">year</span>:       <span class="num">3</span>,</span></div>
+        <div class="cl"><span class="ln">11</span><span class="lc">  <span class="prop">minor</span>:      <span class="str">"Arabic"</span>, <span class="prop">graduating</span>: <span class="num">2028</span>,</span></div>
         <div class="cl"><span class="ln">12</span><span class="lc">  <span class="prop">roles</span>:      [<span class="str">"Software Engineer"</span>, <span class="str">"Product Manager"</span>],</span></div>
-        <div class="cl"><span class="ln">13</span><span class="lc">  <span class="prop">currently</span>:  <span class="str">"Remi, an AI-powered ADHD coach"</span>,</span></div>
+        <div class="cl"><span class="ln">13</span><span class="lc">  <span class="prop">currently</span>:  <span class="str">"building Remi, running Khidmah Collective, grinding LeetCode"</span>,</span></div>
         <div class="cl"><span class="ln">14</span><span class="lc">};</span></div>
         <div class="cl"><span class="ln">15</span><span class="lc"></span></div>
 
@@ -1064,16 +1123,17 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
           <h1>Hi, I'm Afaf 👋</h1>
           <h2>CS @ UT Austin · Software Engineer · Product Manager</h2>
           <p>
-            I'm a third-year Computer Science student at UT Austin who loves building things that live at the intersection of solid engineering and thoughtful product thinking. Whether I'm writing code, shaping a roadmap, or digging into user research — I care about the "why" as much as the "how."
+            I'm a third-year CS student at UT Austin, with a minor in Arabic, who likes owning a product from the first user interview to the last deploy. This summer at DFW Airport I scoped, designed, and shipped the operations platform that 200–300 daily airside bus runs now go through. Before that I built data pipelines for an investment firm and dashboards that a national nonprofit put on its website.
           </p>
           <p>
-            I'm equally comfortable in a codebase and in a strategy doc. Right now I'm focused on Remi, an AI-powered ADHD coach, and on running Khidmah Collective, the student tech consulting org I founded.
+            On campus I founded Khidmah Collective, a 12-person student consultancy that builds web and data tools for nonprofits and small businesses. On the side I'm building Remi, an AI coach for ADHD brains, and doing my LeetCode in public: open <a href="#" onclick="openTab('leetcode');return false;" style="color:var(--accent2);">leetcode.py</a> to see whether I've done today's.
           </p>
           <div class="tags">
-            <span class="tag">React</span>
-            <span class="tag">TypeScript</span>
             <span class="tag">Python</span>
-            <span class="tag">Product Strategy</span>
+            <span class="tag">React</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Snowflake</span>
+            <span class="tag">User Research</span>
             <span class="tag">UT Austin 🤘</span>
           </div>
         </div>
@@ -1095,21 +1155,27 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
         <div class="cl"><span class="ln">5</span><span class="lc"></span></div>
 
         <div class="proj-card">
-          <h3>🌸 Remi · AI-Powered ADHD Coach <a href="https://github.com/afafMaliha0716/remi" target="_blank" rel="noopener">GitHub ↗</a></h3>
-          <p>An AI productivity app that turns a messy brain dump into structured tasks, then shows one thing to do next and explains why. It ranks tasks by deadline, effort, and your current energy and time, and breaks big tasks into small steps. I wrote the PRD from user research and competitive analysis.</p>
-          <div class="tags" style="margin-top:8px;"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Figma</span><span class="tag">Jira</span></div>
+          <h3>🐚 Remi · AI coach for ADHD <a href="https://github.com/afafMaliha0716/remi" target="_blank" rel="noopener">GitHub ↗</a></h3>
+          <p>A pocket coach that turns ADHD overwhelm into one small next step. It ranks your tasks and keeps the next three in front of you, talks you through "plan my day", "I'm overwhelmed", and "I lost something", and runs a focus timer with XP, levels, and streaks. I wrote the PRD from user research and competitive analysis; the AI has a rule-based fallback, so the app and its 87 tests run with no API key.</p>
+          <div class="tags" style="margin-top:8px;"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Gemini API</span></div>
         </div>
 
         <div class="proj-card">
-          <h3>✦ FocusDJ · Focus-Adaptive Music Extension <a href="https://github.com/IshaJ721/focus-dj" target="_blank" rel="noopener">GitHub ↗</a></h3>
-          <p>A Chrome extension, co-built with a team, that scores focus in real time from tab switching, idle time, and webcam face detection, and uses a UCB1 multi-armed bandit to learn which music changes bring each user back on task.</p>
-          <div class="tags" style="margin-top:8px;"><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Chrome Extension APIs</span><span class="tag">Groq API</span></div>
+          <h3>🎧 FocusDJ · Focus-adaptive music <a href="https://github.com/afafMaliha0716/focus-dj" target="_blank" rel="noopener">GitHub ↗</a></h3>
+          <p>A Chrome extension, built with a teammate, that scores your focus in real time from tab switching, idle time, scrolling, and optional webcam face detection, then changes your YouTube Music to pull you back. A UCB1 multi-armed bandit learns which kind of nudge actually works for each person.</p>
+          <div class="tags" style="margin-top:8px;"><span class="tag">JavaScript</span><span class="tag">Chrome Extension APIs</span><span class="tag">React</span><span class="tag">Groq API</span></div>
         </div>
 
         <div class="proj-card">
-          <h3>🔮 Asteria · AI Game Generation System</h3>
-          <p>A hackathon project: a multi-agent system on the Gemini API that generates playable 2D games from natural-language prompts, with a modular Python game engine and a React/TypeScript frontend.</p>
-          <div class="tags" style="margin-top:8px;"><span class="tag">Python</span><span class="tag">Gemini API</span><span class="tag">React</span><span class="tag">TypeScript</span></div>
+          <h3>🔮 Asteria · AI game generator</h3>
+          <p>Describe a world, get a playable game. A hackathon project built with two teammates at HackTX 2025: a multi-agent system on the Gemini API designs the concept, writes the game on a Python engine from tested templates, and packages it for download from a React frontend.</p>
+          <div class="tags" style="margin-top:8px;"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Gemini API</span><span class="tag">React</span><span class="tag">TypeScript</span></div>
+        </div>
+
+        <div class="proj-card">
+          <h3>🌸 This portfolio <a href="https://github.com/afafMaliha0716/afafmaliha0716.github.io" target="_blank" rel="noopener">GitHub ↗</a></h3>
+          <p>A pink VS Code in one HTML file with no frameworks: command palette, working terminal, resizable panels, light and dark themes, and a LeetCode tracker that a scheduled GitHub Action keeps current.</p>
+          <div class="tags" style="margin-top:8px;"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">GitHub Actions</span></div>
         </div>
 
         <div class="cl" style="margin-top:8px;"><span class="ln">6</span><span class="lc">];</span></div>
@@ -1236,12 +1302,34 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
       </div>
     </div>
 
+    <!-- ── LEETCODE ── -->
+    <div class="editor-pane" id="pane-leetcode">
+      <div class="breadcrumb"><span>portfolio</span><span class="bc-sep">›</span><span class="bc-act">leetcode.py</span></div>
+      <div class="editor-scroll">
+        <div class="cl"><span class="ln">1</span><span class="lc"><span class="cmt"># Interview prep, in public. The rule: two problems a day.</span></span></div>
+        <div class="cl"><span class="ln">2</span><span class="lc"><span class="cmt"># This file checks my LeetCode profile every hour, so I can't fudge it.</span></span></div>
+        <div class="cl"><span class="ln">3</span><span class="lc"></span></div>
+        <div class="cl"><span class="ln">4</span><span class="lc"><span class="prop">DAILY_GOAL</span> = <span class="num">2</span></span></div>
+        <div class="cl"><span class="ln">5</span><span class="lc"></span></div>
+        <div class="cl"><span class="ln">6</span><span class="lc"><span class="kw">def</span> <span class="fn">status</span>(today):</span></div>
+
+        <div class="lc-wrap" id="lcWrap">
+          <div class="lc-build" id="lcBuild">
+            <span class="lc-build-icon">…</span>
+            <div><div class="lc-build-title">Checking LeetCode</div></div>
+          </div>
+        </div>
+
+        <div class="cl"><span class="ln">7</span><span class="lc">    <span class="kw">return</span> today.solved &gt;= <span class="prop">DAILY_GOAL</span></span></div>
+      </div>
+    </div>
+
     <!-- ── CONTACT ── -->
     <div class="editor-pane" id="pane-contact">
       <div class="breadcrumb"><span>portfolio</span><span class="bc-sep">›</span><span class="bc-act">contact.ts</span></div>
       <div class="editor-scroll">
         <div class="cl"><span class="ln">1</span><span class="lc"><span class="cmt">// ── Let's connect ────────────────────────────────────────</span></span></div>
-        <div class="cl"><span class="ln">2</span><span class="lc"><span class="cmt">// Open to internships, collabs & interesting conversations.</span></span></div>
+        <div class="cl"><span class="ln">2</span><span class="lc"><span class="cmt">// Looking for Summer 2027 SWE and PM internships. Also up for collabs.</span></span></div>
         <div class="cl"><span class="ln">3</span><span class="lc"></span></div>
         <div class="cl"><span class="ln">4</span><span class="lc"><span class="kw">const</span> <span class="fn">contact</span> = {</span></div>
         <div class="cl"><span class="ln">5</span><span class="lc"></span></div>
@@ -1254,13 +1342,9 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
           <span class="c-icon">🔗</span>
           <div><div class="c-label">LinkedIn</div><div class="c-val">linkedin.com/in/afaf-maliha-cs</div></div>
         </a>
-        <a class="contact-link" href="https://github.com/afafmaliha0716" target="_blank">
+        <a class="contact-link" href="https://github.com/afafMaliha0716" target="_blank">
           <span class="c-icon">🐙</span>
-          <div><div class="c-label">GitHub</div><div class="c-val">github.com/afafmaliha0716</div></div>
-        </a>
-        <a class="contact-link" href="#" target="_blank">
-          <span class="c-icon">📄</span>
-          <div><div class="c-label">Resume</div><div class="c-val">View / Download PDF</div></div>
+          <div><div class="c-label">GitHub</div><div class="c-val">github.com/afafMaliha0716</div></div>
         </a>
 
         <div style="margin: 12px 52px;">
@@ -1281,7 +1365,7 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
     <div class="panel" id="panel">
       <div class="panel-hdr">
         <div class="ptab active" id="ptab-terminal" onclick="switchPanel('terminal')">TERMINAL</div>
-        <div class="ptab"        id="ptab-problems" onclick="switchPanel('problems')">PROBLEMS <span style="background:var(--red);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;margin-left:3px;">3</span></div>
+        <div class="ptab"        id="ptab-problems" onclick="switchPanel('problems')">PROBLEMS <span id="probCount" style="background:var(--red);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;margin-left:3px;">2</span></div>
         <div class="ptab"        id="ptab-output"   onclick="switchPanel('output')">OUTPUT</div>
         <div class="panel-ctrl">
           <button onclick="togglePanel()" title="Collapse/expand">⊟</button>
@@ -1292,16 +1376,16 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
         <div id="term-log"></div>
         <div class="term-input-row">
           <span class="term-prompt-str">afaf@portfolio:~$ </span>
-          <input class="term-input" id="termInput" placeholder="try: ls, whoami, help" onkeydown="termKey(event)" autocomplete="off" spellcheck="false" />
+          <input class="term-input" id="termInput" placeholder="try: leetcode, ls, whoami, help" onkeydown="termKey(event)" autocomplete="off" spellcheck="false" />
         </div>
       </div>
       <div class="problems-body" id="problems-body">
-        <div class="prob-row"><span class="prob-icon">⚠️</span><span class="prob-msg"><span style="color:var(--yellow)">afaf.ts</span> — too many side projects (line 47)</span><span class="prob-loc">afaf.ts 47:1</span></div>
-        <div class="prob-row"><span class="prob-icon">⚠️</span><span class="prob-msg"><span style="color:var(--yellow)">schedule.ts</span> — sleep() called with argument 0</span><span class="prob-loc">schedule.ts 3:14</span></div>
-        <div class="prob-row"><span class="prob-icon">ℹ️</span><span class="prob-msg"><span style="color:var(--blue)">coffee.ts</span> — variable 'cups' may overflow</span><span class="prob-loc">coffee.ts 1:1</span></div>
+        <div id="lcProblem"></div>
+        <div class="prob-row"><span class="prob-icon">⚠️</span><span class="prob-msg"><span style="color:var(--yellow)">khidmah.ts</span> — 4 client projects awaiting review at the same time</span><span class="prob-loc">khidmah.ts 12:4</span></div>
+        <div class="prob-row"><span class="prob-icon">ℹ️</span><span class="prob-msg"><span style="color:var(--blue)">minor.ar</span> — Arabic minor detected: right-to-left support still pending</span><span class="prob-loc">minor.ar 1:1</span></div>
       </div>
       <div class="problems-body" id="output-body" style="display:none;">
-        <span style="color:var(--green)">▸ Built in 0.42s &nbsp;·&nbsp; 5 files &nbsp;·&nbsp; No errors</span>
+        <span style="color:var(--green)">▸ One HTML file &nbsp;·&nbsp; zero dependencies &nbsp;·&nbsp; LeetCode data synced hourly by GitHub Actions</span>
       </div>
     </div>
 
@@ -1314,13 +1398,14 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
     <svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 9v6M18 15v-4a4 4 0 0 0-4-4H9"/></svg>
     main
   </div>
-  <div class="sb-item">⚠ 2 &nbsp; ℹ 1</div>
+  <div class="sb-item" id="sb-probs" onclick="switchPanel('problems')">⚠ 1 &nbsp; ℹ 1</div>
+  <div class="sb-item sb-lc" id="sb-lc" onclick="openTab('leetcode')" title="Open leetcode.py"></div>
   <div class="sb-item" id="sb-file">about.ts</div>
   <div class="sb-right">
-    <span class="sb-item" id="sb-status">● building something cool...</span>
+    <span class="sb-item" id="sb-status">● 3rd yr CS @ UT Austin</span>
     <span class="sb-item">Ln 1, Col 1</span>
     <span class="sb-item">UTF-8</span>
-    <span class="sb-item">TypeScript</span>
+    <span class="sb-item" id="sb-lang">TypeScript</span>
     <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark theme" id="themeBtn">☀️</button>
   </div>
 </div>
@@ -1329,12 +1414,13 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
 /* ══════════════════════════════════════════════════════
    TABS & NAVIGATION
 ══════════════════════════════════════════════════════ */
-const ALL_TABS = ['about','projects','experience','skills','contact'];
+const ALL_TABS = ['about','projects','experience','skills','leetcode','contact'];
 const TAB_META = {
   about:      { name:'about.ts',       dot:'ts'   },
   projects:   { name:'projects.tsx',   dot:'tsx'  },
   experience: { name:'experience.tsx', dot:'tsx'  },
   skills:     { name:'skills.json',    dot:'json' },
+  leetcode:   { name:'leetcode.py',    dot:'py'   },
   contact:    { name:'contact.ts',     dot:'ts'   },
 };
 let openTabs = ['about'];
@@ -1362,8 +1448,8 @@ function openTab(id) {
   });
   document.getElementById('sb-file').textContent = TAB_META[id].name;
   // language in status bar
-  const lang = id === 'skills' ? 'JSON' : 'TypeScript';
-  document.querySelector('.statusbar .sb-right .sb-item:nth-child(3)').textContent = lang;
+  const lang = id === 'skills' ? 'JSON' : id === 'leetcode' ? 'Python' : 'TypeScript';
+  document.getElementById('sb-lang').textContent = lang;
   renderTabs();
 }
 
@@ -1386,7 +1472,7 @@ document.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'P') { e.preventDefault(); openPalette(); return; }
   if ((e.ctrlKey || e.metaKey) && !e.shiftKey) {
     const n = parseInt(e.key);
-    if (n >= 1 && n <= 5) { e.preventDefault(); openTab(ALL_TABS[n-1]); }
+    if (n >= 1 && n <= ALL_TABS.length) { e.preventDefault(); openTab(ALL_TABS[n-1]); }
   }
   if (e.key === 'Escape') closePalette();
 });
@@ -1416,7 +1502,8 @@ const CMD_ITEMS = [
   { name:'projects.tsx',   desc:'Things I\'ve built',       action:()=>openTab('projects'),   dot:'tsx',  kbd:'Ctrl+2' },
   { name:'experience.tsx', desc:'Internships & roles',      action:()=>openTab('experience'), dot:'tsx',  kbd:'Ctrl+3' },
   { name:'skills.json',    desc:'Languages, tools & more',  action:()=>openTab('skills'),     dot:'json', kbd:'Ctrl+4' },
-  { name:'contact.ts',     desc:'Get in touch',             action:()=>openTab('contact'),    dot:'ts',   kbd:'Ctrl+5' },
+  { name:'leetcode.py',    desc:'Live LeetCode tracker',    action:()=>openTab('leetcode'),   dot:'py',   kbd:'Ctrl+5' },
+  { name:'contact.ts',     desc:'Get in touch',             action:()=>openTab('contact'),    dot:'ts',   kbd:'Ctrl+6' },
   { name:'Toggle theme',   desc:'Switch light / dark mode', action:toggleTheme,               dot:'',     kbd:'' },
   { name:'GitHub',         desc:'github.com/afafmaliha0716',action:()=>window.open('https://github.com/afafmaliha0716','_blank'), dot:'', kbd:'' },
 ];
@@ -1443,7 +1530,7 @@ function renderCmdItems(items) {
   const el = document.getElementById('cmdResults');
   el.innerHTML = items.map((c, i) => `
     <div class="cmd-item${i===cmdFocusIdx?' focused':''}" onclick="runCmd(${CMD_ITEMS.indexOf(c)})">
-      <span class="cdot ${c.dot}" style="${c.dot?`background:var(--${c.dot==='ts'?'blue':c.dot==='tsx'?'purple':c.dot==='json'?'yellow':'accent'})`:''};width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0"></span>
+      <span class="cdot ${c.dot}" style="${c.dot?`background:var(--${c.dot==='ts'?'blue':c.dot==='tsx'?'purple':c.dot==='json'?'yellow':c.dot==='py'?'green':'accent'})`:''};width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0"></span>
       <div class="c-left">
         <div class="c-name">${c.name}</div>
         <div class="c-desc">${c.desc}</div>
@@ -1467,11 +1554,12 @@ function cmdKey(e) {
    TERMINAL
 ══════════════════════════════════════════════════════ */
 const RESPONSES = {
-  help:    () => `<span class="t-out">Available commands:</span>\n<span class="t-ok">  ls</span>       <span class="t-out">— list portfolio files</span>\n<span class="t-ok">  whoami</span>   <span class="t-out">— about Afaf</span>\n<span class="t-ok">  open &lt;file&gt;</span> <span class="t-out">— open a section</span>\n<span class="t-ok">  cat resume</span> <span class="t-out">— get the resume link</span>\n<span class="t-ok">  pwd</span>      <span class="t-out">— where am I?</span>\n<span class="t-ok">  clear</span>    <span class="t-out">— clear terminal</span>\n<span class="t-ok">  hook 'em</span> <span class="t-out">— 🤘</span>`,
-  ls:      () => `<span class="t-path">about.ts &nbsp; projects.tsx &nbsp; experience.tsx &nbsp; skills.json &nbsp; contact.ts</span>`,
-  whoami:  () => `<span class="t-ok">Afaf Maliha</span> <span class="t-out">— CS @ UT Austin, Year 3. SWE + PM. Building things that matter. ✦</span>`,
+  help:    () => `<span class="t-out">Available commands:</span>\n<span class="t-ok">  ls</span>       <span class="t-out">— list portfolio files</span>\n<span class="t-ok">  whoami</span>   <span class="t-out">— about Afaf</span>\n<span class="t-ok">  open &lt;file&gt;</span> <span class="t-out">— open a section</span>\n<span class="t-ok">  leetcode</span> <span class="t-out">— did Afaf do her problems today?</span>\n<span class="t-ok">  pwd</span>      <span class="t-out">— where am I?</span>\n<span class="t-ok">  clear</span>    <span class="t-out">— clear terminal</span>\n<span class="t-ok">  hook 'em</span> <span class="t-out">— 🤘</span>`,
+  ls:      () => `<span class="t-path">about.ts &nbsp; projects.tsx &nbsp; experience.tsx &nbsp; skills.json &nbsp; leetcode.py &nbsp; contact.ts</span>`,
+  whoami:  () => `<span class="t-ok">Afaf Maliha</span> <span class="t-out">— CS @ UT Austin, class of 2028. Builds Remi, runs Khidmah Collective, owes LeetCode two problems a day.</span>`,
   pwd:     () => `<span class="t-path">/home/afafmaliha0716/portfolio</span>`,
-  'cat resume': () => `<span class="t-out">Opening resume... </span><span class="t-ok">→ [Add your resume link to contact.ts]</span>`,
+  leetcode: () => lcTerminalLine(),
+  'open leetcode':   () => { openTab('leetcode');   return `<span class="t-ok">✓</span> <span class="t-out">Opened leetcode.py</span>`; },
   'hook em':  () => `<span class="t-ok">🤘 HOOK 'EM HORNS 🤘</span>`,
   "hook 'em": () => `<span class="t-ok">🤘 HOOK 'EM HORNS 🤘</span>`,
   date:    () => `<span class="t-out">${new Date().toDateString()}</span>`,
@@ -1530,10 +1618,127 @@ function togglePanel() {
 }
 
 /* ══════════════════════════════════════════════════════
+   LEETCODE TRACKER
+   data/leetcode.json is refreshed hourly by a GitHub Action
+   (scripts/sync-leetcode.mjs). Nothing here is typed by hand.
+══════════════════════════════════════════════════════ */
+const LC_GOAL = 2;
+const LC_TZ = 'America/Chicago';
+const LC_WEEKS = 18;
+let lcState = null;   // { solvedToday, level, data } once loaded
+let lcMissing = false;
+
+const lcDay = (date) => date.toLocaleDateString('en-CA', { timeZone: LC_TZ });
+const lcEsc = (text) => String(text).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function lcAgo(seconds) {
+  const mins = Math.max(1, Math.round((Date.now() / 1000 - seconds) / 60));
+  if (mins < 60) return `${mins} min ago`;
+  if (mins < 60 * 24) return `${Math.round(mins / 60)} hr ago`;
+  const days = Math.round(mins / 1440);
+  return days === 1 ? 'yesterday' : `${days} days ago`;
+}
+
+function lcCompute(data) {
+  const today = lcDay(new Date());
+  const solvedToday = new Set(
+    data.recent.filter((r) => lcDay(new Date(r.timestamp * 1000)) === today).map((r) => r.slug)
+  ).size;
+  const level = solvedToday >= LC_GOAL ? 'pass' : solvedToday > 0 ? 'warn' : 'fail';
+  return { solvedToday, level, data };
+}
+
+function lcHeadline({ solvedToday, level }) {
+  if (level === 'pass') return { icon: '✓', title: 'Build passing', sub: `${solvedToday} solved today. Goal met.` };
+  if (level === 'warn') return { icon: '◐', title: 'Build unstable', sub: `${solvedToday} of ${LC_GOAL} solved today. One more.` };
+  return { icon: '✗', title: 'Build failing', sub: `0 of ${LC_GOAL} solved today. Afaf, close this tab and open LeetCode.` };
+}
+
+function lcTerminalLine() {
+  if (lcMissing) return `<span class="t-out">leetcode: waiting for the first sync</span>`;
+  if (!lcState) return `<span class="t-out">leetcode: still loading, try again in a second</span>`;
+  const h = lcHeadline(lcState);
+  const cls = lcState.level === 'pass' ? 't-ok' : lcState.level === 'warn' ? 't-path' : 't-err';
+  const d = lcState.data;
+  return `<span class="${cls}">${h.icon} ${h.title.toLowerCase()}</span> <span class="t-out">— ${h.sub} ${d.solved.all} solved in total, ${d.streak}-day streak.</span>`;
+}
+
+function lcHeatmap(calendar) {
+  // Columns are weeks, Sunday on top, ending with the current week.
+  const end = new Date();
+  const start = new Date(end);
+  start.setDate(end.getDate() - end.getDay() - 7 * (LC_WEEKS - 1));
+  const cells = [];
+  for (let i = 0; i < LC_WEEKS * 7; i++) {
+    const day = new Date(start);
+    day.setDate(start.getDate() + i);
+    const key = day.toLocaleDateString('en-CA');
+    if (day > end) { cells.push('<span class="lc-cell future"></span>'); continue; }
+    const n = calendar[key] || 0;
+    const lvl = n === 0 ? '' : n < 2 ? ' l1' : n < 4 ? ' l2' : n < 7 ? ' l3' : ' l4';
+    const label = `${day.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}: ${n} submission${n === 1 ? '' : 's'}`;
+    cells.push(`<span class="lc-cell${lvl}" title="${label}"></span>`);
+  }
+  return cells.join('');
+}
+
+function lcRender(state) {
+  const { data, solvedToday, level } = state;
+  const h = lcHeadline(state);
+  const bar = (label, key, color) => {
+    const done = data.solved[key], total = data.totals[key];
+    const pct = total ? (done / total) * 100 : 0;
+    return `<div class="lc-bar-row"><span>${label}</span><div class="lc-bar"><i style="width:${pct}%;background:var(--${color})"></i></div><span class="num">${done} / ${total}</span></div>`;
+  };
+  const pips = Array.from({ length: LC_GOAL }, (_, i) => `<span class="lc-pip${i < solvedToday ? ' on' : ''}"></span>`).join('');
+  const recent = data.recent.slice(0, 6).map((r) =>
+    `<li><a href="https://leetcode.com/problems/${encodeURIComponent(r.slug)}/" target="_blank" rel="noopener">${lcEsc(r.title)}</a><time>${lcAgo(r.timestamp)}</time></li>`
+  ).join('');
+
+  document.getElementById('lcWrap').innerHTML = `
+    <div class="lc-build ${level}">
+      <span class="lc-build-icon">${h.icon}</span>
+      <div><div class="lc-build-title">${h.title}</div><div class="lc-build-sub">${h.sub}</div></div>
+      <div class="lc-pips" aria-hidden="true">${pips}</div>
+    </div>
+    <div class="lc-stats">
+      <div class="lc-stat"><b>${data.solved.all}</b><span>problems solved</span></div>
+      <div class="lc-stat"><b>${data.streak}</b><span>day streak</span></div>
+      <div class="lc-stat"><b>${data.activeDays}</b><span>active days this year</span></div>
+    </div>
+    <div class="lc-bars">
+      ${bar('Easy', 'easy', 'green')}${bar('Medium', 'medium', 'yellow')}${bar('Hard', 'hard', 'red')}
+    </div>
+    <div class="lc-h">Last ${LC_WEEKS} weeks</div>
+    <div class="lc-heat">${lcHeatmap(data.calendar)}</div>
+    ${recent ? `<div class="lc-h">Recently solved</div><ul class="lc-recent">${recent}</ul>` : ''}
+    <p class="lc-foot">Synced from <a href="https://leetcode.com/u/${encodeURIComponent(data.username)}/" target="_blank" rel="noopener">leetcode.com/u/${lcEsc(data.username)}</a> ${lcAgo(Date.parse(data.syncedAt) / 1000)}.</p>`;
+
+  // Status bar and Problems panel carry the same verdict.
+  const sb = document.getElementById('sb-lc');
+  sb.className = `sb-item sb-lc ${level}`;
+  sb.textContent = `LeetCode ${h.icon} ${Math.min(solvedToday, LC_GOAL)}/${LC_GOAL}`;
+  const failing = level !== 'pass';
+  document.getElementById('lcProblem').innerHTML = failing
+    ? `<div class="prob-row" onclick="openTab('leetcode')"><span class="prob-icon">${level === 'fail' ? '❌' : '⚠️'}</span><span class="prob-msg"><span style="color:var(--red)">leetcode.py</span> — daily goal not met: ${solvedToday} of ${LC_GOAL} problems solved today</span><span class="prob-loc">leetcode.py 6:1</span></div>`
+    : '';
+  document.getElementById('probCount').textContent = failing ? 3 : 2;
+  document.getElementById('sb-probs').innerHTML = `${level === 'fail' ? '✗ 1 &nbsp; ' : ''}⚠ ${level === 'warn' ? 2 : 1} &nbsp; ℹ 1`;
+}
+
+fetch('data/leetcode.json', { cache: 'no-store' })
+  .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.status))))
+  .then((data) => { lcState = lcCompute(data); lcRender(lcState); })
+  .catch(() => {
+    lcMissing = true;
+    document.getElementById('lcBuild').innerHTML =
+      '<span class="lc-build-icon">…</span><div><div class="lc-build-title">Waiting for the first sync</div><div class="lc-build-sub">The tracker fills in after its first hourly run.</div></div>';
+  });
+
+/* ══════════════════════════════════════════════════════
    STATUS BAR ROTATING MESSAGE
 ══════════════════════════════════════════════════════ */
 const STATUSES = [
-  '● building something cool...',
   '● 3rd yr CS @ UT Austin',
   '● open to Summer 2027 internships',
   '● SWE + PM 🤘',
@@ -1569,15 +1774,12 @@ document.querySelectorAll('[data-tt]').forEach(el => {
    BOOT TERMINAL
 ══════════════════════════════════════════════════════ */
 const boot = [
-  { delay: 200,  html: `<span class="t-out">$ npm run dev</span>` },
-  { delay: 600,  html: `<span class="t-out">  ▸ Starting portfolio server...</span>` },
-  { delay: 1100, html: `<span class="t-ok">  ✓ Ready on http://localhost:3000</span>` },
-  { delay: 1700, html: `<span class="t-out">$ git log --oneline -3</span>` },
-  { delay: 2000, html: `<span style="color:var(--yellow)">a1b2c3f</span> <span class="t-out">feat: dark Night Pink theme + command palette</span>` },
-  { delay: 2200, html: `<span style="color:var(--yellow)">d4e5f6a</span> <span class="t-out">feat: interactive terminal with easter eggs</span>` },
-  { delay: 2400, html: `<span style="color:var(--yellow)">c7d8e9b</span> <span class="t-out">init: vscode portfolio — afafmaliha0716 ✦</span>` },
+  { delay: 200,  html: `<span class="t-pmt">afaf@portfolio:~$</span> <span class="t-cmd">whoami</span>` },
+  { delay: 500,  html: RESPONSES.whoami() },
+  { delay: 1100, html: `<span class="t-pmt">afaf@portfolio:~$</span> <span class="t-cmd">leetcode</span>` },
+  { delay: 1500, html: null },
 ];
-boot.forEach(({delay, html}) => setTimeout(() => termLog(html), delay));
+boot.forEach(({delay, html}) => setTimeout(() => termLog(html ?? lcTerminalLine()), delay));
 
 /* ══════════════════════════════════════════════════════
    PINK CURSOR GLOW
