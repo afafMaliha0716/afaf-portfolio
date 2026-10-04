@@ -1,8 +1,8 @@
-# afafmaliha0716.github.io
+# afaf-portfolio
 
 My portfolio, built to look and work like VS Code, in pink.
 
-**[afafmaliha0716.github.io](https://afafmaliha0716.github.io)**
+**[afafmaliha0716.github.io/afaf-portfolio](https://afafmaliha0716.github.io/afaf-portfolio/)**
 
 ![The portfolio: a pink VS Code window with an about file open](preview.png)
 
