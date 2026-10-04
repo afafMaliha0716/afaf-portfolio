@@ -19,12 +19,24 @@ My portfolio, built to look and work like VS Code, in pink.
 
 ## Things to try
 
-- **Command palette:** `Ctrl+Shift+P` opens a fuzzy file search.
-- **Keyboard shortcuts:** `Ctrl+1` through `Ctrl+6` jump between files.
-- **Terminal:** type `help`, `ls`, `whoami`, `leetcode`, or `hook 'em`.
-- **Theme:** the sun in the status bar switches between Night Pink and a
-  light theme.
-- **Panels:** drag the sidebar and terminal edges to resize them.
+Everything on the screen does something.
+
+- **Menu bar:** File, Edit, View, Go, and Run all open real menus. Edit picks
+  between four color themes: Night Pink, Day Pink, Lavender Night, and
+  Strawberry Matcha.
+- **Window buttons:** red closes the window (it comes back), yellow minimizes
+  it to a dock, green goes full screen.
+- **Terminal:** type `help`. `bloom` grows a flower, `deploy` ships the site,
+  `matcha` brews a cup, `leetcode` checks whether I've done today's problems,
+  and `theme matcha` switches themes.
+- **Sidebar:** folders open and close, and the source control icon lists this
+  repo's real commits, fetched live from GitHub.
+- **Command palette:** `Ctrl+Shift+P` opens a fuzzy search over files and
+  commands.
+- **Keyboard shortcuts:** `Ctrl+1` through `Ctrl+6` jump between files,
+  `Ctrl+B` toggles the sidebar, `Ctrl+J` toggles the terminal, and
+  `Ctrl +` / `Ctrl -` change the text size.
+- **Zen mode:** View → Zen Mode leaves just the editor. Esc brings it back.
 - There is one more thing, for people who remember old cheat codes.
 
 ## The LeetCode tracker
