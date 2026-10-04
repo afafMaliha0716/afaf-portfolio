@@ -610,7 +610,8 @@ body {
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   line-height: 1.75;
-  display: flex;
+  /* Hidden unless it is the selected panel tab; .active turns it on below. */
+  display: none;
   flex-direction: column;
 }
 .terminal-body::-webkit-scrollbar { width: 5px; }
