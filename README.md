@@ -1,77 +1,64 @@
-# 🌸 afaf-maliha · Portfolio
+# afafmaliha0716.github.io
 
-> A VSCode-themed developer portfolio — because why should a portfolio look like everything else?
+My portfolio, built to look and work like VS Code, in pink.
 
-**[Live Site →](https://afafmaliha0716.github.io)** &nbsp; | &nbsp; **[UT Austin CS · Year 3](https://www.cs.utexas.edu)**
+**[afafmaliha0716.github.io](https://afafmaliha0716.github.io)**
 
----
+![The portfolio: a pink VS Code window with an about file open](preview.png)
 
-## Features
-
-- **Night Pink dark theme** — based on the VSCode Night Pink extension, with a full light mode toggle
-- **Command Palette** — `Ctrl+Shift+P` opens a real fuzzy-search file navigator (just like VSCode)
-- **Keyboard shortcuts** — `Ctrl+1` through `Ctrl+5` to jump between sections
-- **Interactive terminal** — type `ls`, `whoami`, `open projects`, `hook 'em`, and more
-- **Problems panel** — accurate representation of my schedule
-- **Rotating status bar** — updates every few seconds, like a real editor
-- **Hover IntelliSense** — hover over code identifiers for tooltips
-- **Zero dependencies** — pure HTML, CSS, and vanilla JS. No build step, no frameworks
-
-## Portfolio Sections
+## What's in it
 
 | File | Contents |
 |------|----------|
-| `about.ts` | Bio, background, and what I'm working on |
-| `projects.tsx` | Projects with GitHub + live links |
-| `experience.tsx` | Internships and campus involvement |
+| `about.ts` | Who I am and what I'm working on |
+| `projects.tsx` | Remi, FocusDJ, Asteria, and this site |
+| `experience.tsx` | Internships and Khidmah Collective |
 | `skills.json` | Languages, frameworks, tools, product skills |
-| `contact.ts` | Email, LinkedIn, GitHub, resume |
+| `leetcode.py` | A live LeetCode tracker (see below) |
+| `contact.ts` | Email, LinkedIn, GitHub |
 
-## Deploying to GitHub Pages
+## Things to try
 
-This site deploys automatically via GitHub Pages — no CI/CD needed.
+- **Command palette:** `Ctrl+Shift+P` opens a fuzzy file search.
+- **Keyboard shortcuts:** `Ctrl+1` through `Ctrl+6` jump between files.
+- **Terminal:** type `help`, `ls`, `whoami`, `leetcode`, or `hook 'em`.
+- **Theme:** the sun in the status bar switches between Night Pink and a
+  light theme.
+- **Panels:** drag the sidebar and terminal edges to resize them.
+- There is one more thing, for people who remember old cheat codes.
 
-1. Create a repo named **`afafmaliha0716.github.io`** (must match your GitHub username exactly)
-2. Push this code to the `main` branch
-3. Go to **Settings → Pages → Source → Deploy from branch → main / root**
-4. Your site will be live at `https://afafmaliha0716.github.io` in ~60 seconds
+## The LeetCode tracker
 
-**Updating the site:** just push a new commit. GitHub Pages redeploys automatically.
+I'm doing interview prep in public. The rule is two problems a day, and the
+site reports on it like a CI build:
 
-## Local development
+- **Build passing** when I've solved two today, **unstable** at one, and
+  **failing** at zero. The verdict shows in `leetcode.py`, in the status bar,
+  in the Problems panel, and when you type `leetcode` in the terminal.
+- Totals by difficulty, my current streak, a heatmap of the last 18 weeks,
+  and the problems I solved most recently.
 
-No build step needed. Just open `index.html` in your browser:
+None of it is typed by hand. A GitHub Action
+([`leetcode.yml`](.github/workflows/leetcode.yml)) runs every hour, calls
+LeetCode's public GraphQL endpoint with
+[`scripts/sync-leetcode.mjs`](scripts/sync-leetcode.mjs), and commits
+`data/leetcode.json` when the numbers change. The page reads that file.
+
+## How it's built
+
+One `index.html` with plain HTML, CSS, and JavaScript. No frameworks, no build
+step, no dependencies. GitHub Pages serves it straight from `main`.
+
+To run it locally, serve the folder so the page can load the data file:
 
 ```bash
-# Option 1: just open the file
-open index.html
-
-# Option 2: serve locally with Python
 python3 -m http.server 3000
-# then visit http://localhost:3000
-
-# Option 3: VS Code Live Server extension → right-click index.html → Open with Live Server
+# then open http://localhost:3000
 ```
 
-## Customizing
+To run the sync script and its tests:
 
-All content lives in `index.html`. Look for `[bracket]` placeholders:
-
-- **About** → lines 8–13: update name, university details, currently working on
-- **Projects** → search `proj-card` sections: fill in names, descriptions, GitHub/live links
-- **Experience** → search `exp-card` sections: fill in company, role, dates, bullets
-- **Contact** → update email, LinkedIn handle, resume PDF link
-- **Status bar messages** → search `STATUSES` array near the bottom of the `<script>` tag
-- **Terminal easter eggs** → search `RESPONSES` object to add your own commands
-
-## Preview
-
-![Portfolio Preview](preview.png)
-<!-- Take a screenshot and save it as preview.png in this folder -->
-
----
-
-<p align="center">
-  Built with 💗 and way too much pink &nbsp;·&nbsp; 
-  <a href="https://afafmaliha0716.github.io">afafmaliha0716.github.io</a>
-</p>
+```bash
+node --test scripts/sync-leetcode.test.mjs
+node scripts/sync-leetcode.mjs afafMaliha0716
+```
