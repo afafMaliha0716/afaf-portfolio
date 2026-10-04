@@ -1,0 +1,38 @@
+name: Sync LeetCode stats
+
+on:
+  schedule:
+    - cron: "17 * * * *" # hourly
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/sync-leetcode.mjs
+      - .github/workflows/leetcode.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: leetcode-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test scripts/sync-leetcode.test.mjs
+      - run: node scripts/sync-leetcode.mjs afafMaliha0716
+      - name: Commit if the stats changed
+        run: |
+          if [ -n "$(git status --porcelain data/)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/leetcode.json
+            git commit -m "Update LeetCode stats"
+            git push
+          fi
