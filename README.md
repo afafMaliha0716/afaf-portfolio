@@ -11,7 +11,7 @@ My portfolio, built to look and work like VS Code, in pink.
 | File | Contents |
 |------|----------|
 | `about.ts` | Who I am and what I'm working on |
-| `projects.tsx` | Remi, FocusDJ, Asteria, and this site |
+| `projects.tsx` | Remi, Crux, FocusDJ, Asteria, and this site |
 | `experience.tsx` | Internships and Khidmah Collective |
 | `skills.json` | Languages, frameworks, tools, product skills |
 | `leetcode.py` | A live LeetCode tracker (see below) |
