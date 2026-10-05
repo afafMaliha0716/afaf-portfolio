@@ -27,8 +27,7 @@ Everything on the screen does something.
 - **Window buttons:** red closes the window (it comes back), yellow minimizes
   it to a dock, green goes full screen.
 - **Terminal:** type `help`. `bloom` grows a flower, `deploy` ships the site,
-  `matcha` brews a cup, `leetcode` checks whether I've done today's problems,
-  and `theme matcha` switches themes.
+  `matcha` brews a cup, and `theme matcha` switches themes.
 - **Sidebar:** folders open and close, and the source control icon lists this
   repo's real commits, fetched live from GitHub.
 - **Command palette:** `Ctrl+Shift+P` opens a fuzzy search over files and
@@ -41,14 +40,10 @@ Everything on the screen does something.
 
 ## The LeetCode tracker
 
-I'm doing interview prep in public. The rule is two problems a day, and the
-site reports on it like a CI build:
-
-- **Build passing** when I've solved two today, **unstable** at one, and
-  **failing** at zero. The verdict shows in `leetcode.py`, in the status bar,
-  in the Problems panel, and when you type `leetcode` in the terminal.
-- Totals by difficulty, my current streak, a heatmap of the last 18 weeks,
-  and the problems I solved most recently.
+I'm doing interview prep in public to keep myself accountable. The rule is two
+problems a day, and `leetcode.py` reports on it like a CI build: passing at
+two, unstable at one, failing at zero. It also shows totals by difficulty, my
+current streak, the last four weeks, and the problems I solved most recently.
 
 None of it is typed by hand. A GitHub Action
 ([`leetcode.yml`](.github/workflows/leetcode.yml)) runs every hour, calls

@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Afaf Maliha — Software Engineer and Product Manager</title>
-  <meta name="description" content="Afaf Maliha is a Computer Science student at UT Austin who builds products end to end: Remi, FocusDJ, Asteria, and a live LeetCode tracker." />
+  <meta name="description" content="Afaf Maliha is a Computer Science student at UT Austin who builds products end to end: Remi, Crux, FocusDJ, and Asteria." />
   <meta property="og:title" content="Afaf Maliha — Software Engineer and Product Manager" />
-  <meta property="og:description" content="CS at UT Austin. Projects, experience, and a live LeetCode tracker, in a pink VS Code." />
+  <meta property="og:description" content="CS at UT Austin. Projects and experience, in a pink VS Code." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://afafmaliha0716.github.io/afaf-portfolio/" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -1013,13 +1013,13 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
 .lc-stat b { display: block; font-size: 24px; font-weight: 700; color: var(--text-primary); font-variant-numeric: tabular-nums; line-height: 1.1; }
 .lc-stat span { font-size: 11.5px; color: var(--text-mid); }
 .lc-bars { margin-top: 14px; display: grid; gap: 8px; }
-.lc-bar-row { display: grid; grid-template-columns: 62px 1fr 78px; align-items: center; gap: 10px; font-size: 12px; color: var(--text-mid); }
+.lc-bar-row { display: grid; grid-template-columns: 62px 1fr 32px; align-items: center; gap: 10px; font-size: 12px; color: var(--text-mid); }
 .lc-bar-row .num { text-align: right; font-variant-numeric: tabular-nums; }
 .lc-bar { height: 8px; border-radius: 4px; background: var(--border-light); overflow: hidden; }
 .lc-bar i { display: block; height: 100%; border-radius: 4px; min-width: 2px; }
 .lc-h { font-size: 12px; font-weight: 600; color: var(--text-mid); margin: 18px 0 8px; }
-.lc-heat { display: grid; grid-template-rows: repeat(7, 12px); grid-auto-flow: column; grid-auto-columns: 12px; gap: 3px; overflow-x: auto; padding-bottom: 4px; }
-.lc-cell { width: 12px; height: 12px; border-radius: 3px; background: var(--border-light); }
+.lc-heat { display: grid; grid-template-rows: repeat(7, 16px); grid-auto-flow: column; grid-auto-columns: 16px; gap: 4px; overflow-x: auto; padding-bottom: 4px; }
+.lc-cell { width: 16px; height: 16px; border-radius: 4px; background: var(--border-light); }
 .lc-cell.l1 { background: color-mix(in srgb, var(--accent) 35%, var(--border-light)); }
 .lc-cell.l2 { background: color-mix(in srgb, var(--accent) 60%, var(--border-light)); }
 .lc-cell.l3 { background: color-mix(in srgb, var(--accent) 80%, var(--border-light)); }
@@ -1032,9 +1032,6 @@ a, button, .tab, .tree-file, .act-icon, .cmd-item, .proj-card,
 .lc-recent time { color: var(--text-muted); white-space: nowrap; }
 .lc-foot { margin-top: 14px; font-size: 11.5px; color: var(--text-muted); }
 .lc-foot a { color: var(--accent2); }
-.sb-lc { cursor: pointer; font-weight: 600; }
-.sb-lc.fail { background: var(--red); color: #2a0714; padding: 0 6px; border-radius: 2px; }
-.sb-lc.warn { background: var(--yellow); color: #2a1a00; padding: 0 6px; border-radius: 2px; }
 
 /* ════════════════════════════════════════════════════════
    MENUS, WINDOW CONTROLS, SIDEBAR VIEWS
@@ -1155,13 +1152,6 @@ body.no-glow .cursor-glow { display: none; }
   .titlebar-controls span { width: 13px; height: 13px; }
   .m-title { font: 500 13px 'JetBrains Mono', monospace; color: var(--text-mid); }
   .m-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
-  .m-lc {
-    border: 0; border-radius: 999px; padding: 4px 10px;
-    font: 600 11px 'JetBrains Mono', monospace; background: var(--accent-glow); color: var(--accent2);
-  }
-  .m-lc.fail { background: var(--red); color: #2a0714; }
-  .m-lc.warn { background: var(--yellow); color: #2a1a00; }
-  .m-lc.pass { background: var(--green); color: #06281a; }
   .m-theme { border: 0; background: var(--accent-glow); border-radius: 999px; width: 32px; height: 32px; font-size: 15px; }
 
   /* Hero: the first screen, a shorter version of the bio */
@@ -1351,7 +1341,6 @@ body.no-glow .cursor-glow { display: none; }
   </div>
   <div class="m-title m-only">afaf-maliha</div>
   <div class="m-actions m-only">
-    <button class="m-lc" id="m-lc" onclick="openTab('leetcode')" hidden></button>
     <button class="m-theme" id="m-theme" onclick="toggleTheme()" aria-label="Next color theme">🌙</button>
   </div>
   <div class="titlebar-center" id="titleCenter">portfolio — afafmaliha0716.github.io/afaf-portfolio</div>
@@ -1410,7 +1399,7 @@ body.no-glow .cursor-glow { display: none; }
         <div class="tree-children hidden" id="treeModules">
           <div class="tree-note" onclick="modulesJoke()">matcha@latest</div>
           <div class="tree-note" onclick="modulesJoke()">ambition@3.0.0</div>
-          <div class="tree-note" onclick="modulesJoke()">leetcode@2-a-day</div>
+          <div class="tree-note" onclick="modulesJoke()">curiosity@∞</div>
           <div class="tree-note" onclick="modulesJoke()">sleep@0.0.1 (deprecated)</div>
           <div class="tree-note" onclick="modulesJoke()">hook-em@🤘</div>
           <div class="tree-note" onclick="modulesJoke()">…and 9,482 more</div>
@@ -1465,7 +1454,7 @@ body.no-glow .cursor-glow { display: none; }
         <div class="cl"><span class="ln">10</span><span class="lc">  <span class="prop">major</span>:      <span class="str">"Computer Science"</span>,</span></div>
         <div class="cl"><span class="ln">11</span><span class="lc">  <span class="prop">minor</span>:      <span class="str">"Arabic"</span>, <span class="prop">graduating</span>: <span class="num">2028</span>,</span></div>
         <div class="cl"><span class="ln">12</span><span class="lc">  <span class="prop">roles</span>:      [<span class="str">"Software Engineer"</span>, <span class="str">"Product Manager"</span>],</span></div>
-        <div class="cl"><span class="ln">13</span><span class="lc">  <span class="prop">currently</span>:  <span class="str">"building Remi, running Khidmah Collective, grinding LeetCode"</span>,</span></div>
+        <div class="cl"><span class="ln">13</span><span class="lc">  <span class="prop">currently</span>:  <span class="str">"building Remi and Crux, running Khidmah Collective"</span>,</span></div>
         <div class="cl"><span class="ln">14</span><span class="lc">};</span></div>
         <div class="cl"><span class="ln">15</span><span class="lc"></span></div>
 
@@ -1476,7 +1465,7 @@ body.no-glow .cursor-glow { display: none; }
             I'm a CS student at UT Austin, and my favorite part of building software happens before the code: figuring out what someone actually needs. That's taken me from interviewing bus dispatchers at DFW Airport to running a 24-hour hackathon to leading a nonprofit.
           </p>
           <p>
-            I'm curious about nearly everything, so I'm never bored and always learning something new. Most of it ends up as a project: my scattered to-do lists became Remi, my LeetCode guilt became <a href="#" onclick="openTab('leetcode');return false;" style="color:var(--accent2);">the tracker on this site</a>, and rock climbing became Crux.
+            I'm curious about nearly everything, so I'm never bored and always learning something new. Most of it ends up as a project: my scattered to-do lists became Remi and rock climbing became Crux. I'm also doing my interview prep in public, to keep myself accountable: <a href="#" onclick="openTab('leetcode');return false;" style="color:var(--accent2);">leetcode.py</a> shows whether I've done today's problems.
           </p>
           <div class="tags">
             <span class="tag">Python</span>
@@ -1545,7 +1534,7 @@ body.no-glow .cursor-glow { display: none; }
           <img class="proj-thumb" src="assets/projects/portfolio.jpg" alt="This site: a pink VS Code window with the about file open" width="1200" height="750" loading="lazy" />
           <div class="proj-body">
             <h3>🌸 This portfolio <a href="https://github.com/afafMaliha0716/afaf-portfolio" target="_blank" rel="noopener">GitHub ↗</a></h3>
-            <p>A pink VS Code in one HTML file with no frameworks: command palette, working terminal, resizable panels, light and dark themes, and a LeetCode tracker that a scheduled GitHub Action keeps current.</p>
+            <p>A pink VS Code in one HTML file with no frameworks: command palette, working terminal, resizable panels, four color themes, and a live stats page that a scheduled GitHub Action keeps current.</p>
             <div class="tags" style="margin-top:8px;"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">GitHub Actions</span></div>
           </div>
         </div>
@@ -1762,7 +1751,7 @@ body.no-glow .cursor-glow { display: none; }
     <div class="panel" id="panel">
       <div class="panel-hdr">
         <div class="ptab active" id="ptab-terminal" onclick="switchPanel('terminal')">TERMINAL</div>
-        <div class="ptab"        id="ptab-problems" onclick="switchPanel('problems')">PROBLEMS <span id="probCount" style="background:var(--red);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;margin-left:3px;">2</span></div>
+        <div class="ptab"        id="ptab-problems" onclick="switchPanel('problems')">PROBLEMS <span id="probCount" style="background:var(--red);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;margin-left:3px;">4</span></div>
         <div class="ptab"        id="ptab-output"   onclick="switchPanel('output')">OUTPUT</div>
         <div class="panel-ctrl">
           <button onclick="togglePanel()" title="Collapse/expand">⊟</button>
@@ -1775,22 +1764,22 @@ body.no-glow .cursor-glow { display: none; }
         <button onclick="runCommand('matcha')">matcha</button>
         <button onclick="runCommand('deploy')">deploy</button>
         <button onclick="runCommand('party')">party</button>
-        <button onclick="runCommand('leetcode')">leetcode</button>
       </div>
       <div class="terminal-body active" id="terminal-body">
         <div id="term-log"></div>
         <div class="term-input-row">
           <span class="term-prompt-str">afaf@portfolio:~$ </span>
-          <input class="term-input" id="termInput" placeholder="try: bloom, leetcode, theme, help" onkeydown="termKey(event)" autocomplete="off" spellcheck="false" />
+          <input class="term-input" id="termInput" placeholder="try: bloom, matcha, theme, help" onkeydown="termKey(event)" autocomplete="off" spellcheck="false" />
         </div>
       </div>
       <div class="problems-body" id="problems-body">
-        <div id="lcProblem"></div>
-        <div class="prob-row"><span class="prob-icon">⚠️</span><span class="prob-msg"><span style="color:var(--yellow)">khidmah.ts</span> — 4 client projects awaiting review at the same time</span><span class="prob-loc">khidmah.ts 12:4</span></div>
+        <div class="prob-row"><span class="prob-icon">⚠️</span><span class="prob-msg"><span style="color:var(--yellow)">coffee.ts</span> — variable 'cups' may overflow</span><span class="prob-loc">coffee.ts 1:1</span></div>
+        <div class="prob-row"><span class="prob-icon">⚠️</span><span class="prob-msg"><span style="color:var(--yellow)">schedule.ts</span> — sleep() called with argument 0</span><span class="prob-loc">schedule.ts 3:14</span></div>
+        <div class="prob-row"><span class="prob-icon">⚠️</span><span class="prob-msg"><span style="color:var(--yellow)">afaf.ts</span> — too many side projects (line 47)</span><span class="prob-loc">afaf.ts 47:1</span></div>
         <div class="prob-row"><span class="prob-icon">ℹ️</span><span class="prob-msg"><span style="color:var(--blue)">minor.ar</span> — Arabic minor detected: right-to-left support still pending</span><span class="prob-loc">minor.ar 1:1</span></div>
       </div>
       <div class="problems-body" id="output-body" style="display:none;">
-        <span style="color:var(--green)">▸ One HTML file &nbsp;·&nbsp; zero dependencies &nbsp;·&nbsp; LeetCode data synced hourly by GitHub Actions</span>
+        <span style="color:var(--green)">▸ One HTML file &nbsp;·&nbsp; zero dependencies &nbsp;·&nbsp; deployed by GitHub Pages</span>
       </div>
     </div>
 
@@ -1813,8 +1802,7 @@ body.no-glow .cursor-glow { display: none; }
     <svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 9v6M18 15v-4a4 4 0 0 0-4-4H9"/></svg>
     main
   </div>
-  <div class="sb-item" id="sb-probs" onclick="switchPanel('problems')">⚠ 1 &nbsp; ℹ 1</div>
-  <div class="sb-item sb-lc" id="sb-lc" onclick="openTab('leetcode')" title="Open leetcode.py"></div>
+  <div class="sb-item" id="sb-probs" onclick="switchPanel('problems')">⚠ 3 &nbsp; ℹ 1</div>
   <div class="sb-item" id="sb-file">about.ts</div>
   <div class="sb-right">
     <span class="sb-item" id="sb-status" onclick="openTab('about')">● 3rd yr CS @ UT Austin</span>
@@ -1993,7 +1981,7 @@ function cmdKey(e) {
 const RESPONSES = {
   help:    () => [
     ['ls', 'list the files'], ['open &lt;file&gt;', 'open a section'], ['whoami', 'about Afaf'],
-    ['leetcode', 'did Afaf do her problems today?'], ['theme', 'list or switch color themes'],
+    ['theme', 'list or switch color themes'],
     ['bloom', 'grow a flower'], ['deploy', 'ship it'], ['matcha', 'brew a cup'], ['sparkle', '✦'],
     ['party', 'confetti'], ['zen', 'just the editor'], ['clear', 'clear the terminal'], ["hook 'em", '🤘'],
   ].map(([c, d]) => `<span class="t-ok">  ${c.padEnd(12)}</span><span class="t-out">${d}</span>`).join('\n'),
@@ -2006,7 +1994,7 @@ const RESPONSES = {
   zen:     () => { toggleZen(); return `<span class="t-out">Zen mode. Press Esc to come back.</span>`; },
   exit:    () => { closeWindow(); },
   ls:      () => `<span class="t-path">about.ts &nbsp; projects.tsx &nbsp; experience.tsx &nbsp; skills.json &nbsp; leetcode.py &nbsp; contact.ts</span>`,
-  whoami:  () => `<span class="t-ok">Afaf Maliha</span> <span class="t-out">— CS @ UT Austin, class of 2028. Builds Remi, runs Khidmah Collective, owes LeetCode two problems a day.</span>`,
+  whoami:  () => `<span class="t-ok">Afaf Maliha</span> <span class="t-out">— CS @ UT Austin, class of 2028. Builds Remi and Crux, runs Khidmah Collective, never bored.</span>`,
   pwd:     () => `<span class="t-path">/home/afafmaliha0716/portfolio</span>`,
   leetcode: () => lcTerminalLine(),
   'open leetcode':   () => { openTab('leetcode');   return `<span class="t-ok">✓</span> <span class="t-out">Opened leetcode.py</span>`; },
@@ -2111,7 +2099,7 @@ function animMatcha() {
   const steam = ['    ~  ~', '   ~  ~ ', '    ~ ~ ', '   ~   ~'];
   const frames = [];
   for (let i = 0; i < 12; i++) frames.push([steam[i % 4], steam[(i + 2) % 4], ...cup.slice(1)].join('\n'));
-  termAnimate(frames, 160, () => termLog(`<span class="t-ok">🍵 matcha ready.</span> <span class="t-out">Focus +10 for the next LeetCode problem.</span>`));
+  termAnimate(frames, 160, () => termLog(`<span class="t-ok">🍵 matcha ready.</span> <span class="t-out">Focus +10.</span>`));
 }
 
 function animSparkle() {
@@ -2154,7 +2142,7 @@ function togglePanel() {
 ══════════════════════════════════════════════════════ */
 const LC_GOAL = 2;
 const LC_TZ = 'America/Chicago';
-const LC_WEEKS = 18;
+const LC_WEEKS = 4;
 let lcState = null;   // { solvedToday, level, data } once loaded
 let lcMissing = false;
 
@@ -2215,10 +2203,11 @@ function lcHeatmap(calendar) {
 function lcRender(state) {
   const { data, solvedToday, level } = state;
   const h = lcHeadline(state);
+  // Bars compare the three difficulties with each other, not with all of LeetCode.
+  const most = Math.max(1, data.solved.easy, data.solved.medium, data.solved.hard);
   const bar = (label, key, color) => {
-    const done = data.solved[key], total = data.totals[key];
-    const pct = total ? (done / total) * 100 : 0;
-    return `<div class="lc-bar-row"><span>${label}</span><div class="lc-bar"><i style="width:${pct}%;background:var(--${color})"></i></div><span class="num">${done} / ${total}</span></div>`;
+    const done = data.solved[key];
+    return `<div class="lc-bar-row"><span>${label}</span><div class="lc-bar"><i style="width:${(done / most) * 100}%;background:var(--${color})"></i></div><span class="num">${done}</span></div>`;
   };
   const pips = Array.from({ length: LC_GOAL }, (_, i) => `<span class="lc-pip${i < solvedToday ? ' on' : ''}"></span>`).join('');
   const recent = data.recent.slice(0, 6).map((r) =>
@@ -2234,7 +2223,7 @@ function lcRender(state) {
     <div class="lc-stats">
       <div class="lc-stat"><b>${data.solved.all}</b><span>problems solved</span></div>
       <div class="lc-stat"><b>${data.streak}</b><span>day streak</span></div>
-      <div class="lc-stat"><b>${data.activeDays}</b><span>active days this year</span></div>
+      
     </div>
     <div class="lc-bars">
       ${bar('Easy', 'easy', 'green')}${bar('Medium', 'medium', 'yellow')}${bar('Hard', 'hard', 'red')}
@@ -2243,21 +2232,6 @@ function lcRender(state) {
     <div class="lc-heat">${lcHeatmap(data.calendar)}</div>
     ${recent ? `<div class="lc-h">Recently solved</div><ul class="lc-recent">${recent}</ul>` : ''}
     <p class="lc-foot">Synced from <a href="https://leetcode.com/u/${encodeURIComponent(data.username)}/" target="_blank" rel="noopener">leetcode.com/u/${lcEsc(data.username)}</a> ${lcAgo(Date.parse(data.syncedAt) / 1000)}.</p>`;
-
-  // Status bar and Problems panel carry the same verdict.
-  const sb = document.getElementById('sb-lc');
-  sb.className = `sb-item sb-lc ${level}`;
-  sb.textContent = `LeetCode ${h.icon} ${Math.min(solvedToday, LC_GOAL)}/${LC_GOAL}`;
-  const chip = document.getElementById('m-lc');
-  chip.hidden = false;
-  chip.className = `m-lc ${level}`;
-  chip.textContent = `LC ${h.icon} ${Math.min(solvedToday, LC_GOAL)}/${LC_GOAL}`;
-  const failing = level !== 'pass';
-  document.getElementById('lcProblem').innerHTML = failing
-    ? `<div class="prob-row" onclick="openTab('leetcode')"><span class="prob-icon">${level === 'fail' ? '❌' : '⚠️'}</span><span class="prob-msg"><span style="color:var(--red)">leetcode.py</span> — daily goal not met: ${solvedToday} of ${LC_GOAL} problems solved today</span><span class="prob-loc">leetcode.py 6:1</span></div>`
-    : '';
-  document.getElementById('probCount').textContent = failing ? 3 : 2;
-  document.getElementById('sb-probs').innerHTML = `${level === 'fail' ? '✗ 1 &nbsp; ' : ''}⚠ ${level === 'warn' ? 2 : 1} &nbsp; ℹ 1`;
 }
 
 fetch('data/leetcode.json', { cache: 'no-store' })
@@ -2313,7 +2287,6 @@ const MENUS = {
     { sep: true },
     { label: 'GitHub ↗', run: go('https://github.com/afafMaliha0716') },
     { label: 'LinkedIn ↗', run: go('https://www.linkedin.com/in/afaf-maliha-cs') },
-    { label: 'LeetCode ↗', run: go('https://leetcode.com/u/afafMaliha0716/') },
   ],
   Run: () => [
     { label: 'Command Palette…', kbd: 'Ctrl+Shift+P', run: openPalette },
@@ -2321,7 +2294,6 @@ const MENUS = {
     { label: 'bloom — grow a flower', run: () => runInTerminal('bloom') },
     { label: 'deploy — ship it', run: () => runInTerminal('deploy') },
     { label: 'matcha — brew a cup', run: () => runInTerminal('matcha') },
-    { label: 'leetcode — check on Afaf', run: () => runInTerminal('leetcode') },
     { label: 'party — confetti', run: () => runInTerminal('party') },
   ],
   Settings: () => [
@@ -2597,10 +2569,8 @@ document.querySelectorAll('[data-tt]').forEach(el => {
 const boot = [
   { delay: 200,  html: `<span class="t-pmt">afaf@portfolio:~$</span> <span class="t-cmd">whoami</span>` },
   { delay: 500,  html: RESPONSES.whoami() },
-  { delay: 1100, html: `<span class="t-pmt">afaf@portfolio:~$</span> <span class="t-cmd">leetcode</span>` },
-  { delay: 1500, html: null },
 ];
-boot.forEach(({delay, html}) => setTimeout(() => termLog(html ?? lcTerminalLine()), delay));
+boot.forEach(({delay, html}) => setTimeout(() => termLog(html), delay));
 
 /* ══════════════════════════════════════════════════════
    PINK CURSOR GLOW
