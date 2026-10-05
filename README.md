@@ -14,7 +14,7 @@ My portfolio, built to look and work like VS Code, in pink.
 | `projects.tsx` | Remi, Crux, FocusDJ, Asteria, and this site |
 | `experience.tsx` | Internships and Khidmah Collective |
 | `skills.json` | Languages, frameworks, tools, product skills |
-| `leetcode.py` | A live LeetCode tracker (see below) |
+| `neetcode.py` | A live NeetCode tracker (see below) |
 | `contact.ts` | Email, LinkedIn, GitHub |
 
 ## Things to try
@@ -38,18 +38,20 @@ Everything on the screen does something.
 - **Zen mode:** View → Zen Mode leaves just the editor. Esc brings it back.
 - There is one more thing, for people who remember old cheat codes.
 
-## The LeetCode tracker
+## The NeetCode tracker
 
 I'm doing interview prep in public to keep myself accountable. The rule is two
-problems a day, and `leetcode.py` reports on it like a CI build: passing at
-two, unstable at one, failing at zero. It also shows totals by difficulty, my
-current streak, the last four weeks, and the problems I solved most recently.
+problems a day, and `neetcode.py` reports on it like a CI build: passing at
+two, unstable at one, failing at zero. It also shows how many problems I've
+solved, my current streak, the last four weeks, and the most recent problems.
 
-None of it is typed by hand. A GitHub Action
-([`leetcode.yml`](.github/workflows/leetcode.yml)) runs every hour, calls
-LeetCode's public GraphQL endpoint with
-[`scripts/sync-leetcode.mjs`](scripts/sync-leetcode.mjs), and commits
-`data/leetcode.json` when the numbers change. The page reads that file.
+None of it is typed by hand. I solve problems on [NeetCode](https://neetcode.io),
+and its GitHub Sync commits each submission to
+[`neetcode-submissions`](https://github.com/afafMaliha0716/neetcode-submissions).
+A GitHub Action ([`neetcode.yml`](.github/workflows/neetcode.yml)) runs every
+hour, reads that repo's commit history with
+[`scripts/sync-neetcode.mjs`](scripts/sync-neetcode.mjs), and commits
+`data/neetcode.json` when something changes. The page reads that file.
 
 ## On a phone
 
@@ -73,6 +75,7 @@ python3 -m http.server 3000
 To run the sync script and its tests:
 
 ```bash
-node --test scripts/sync-leetcode.test.mjs
-node scripts/sync-leetcode.mjs afafMaliha0716
+node --test scripts/sync-neetcode.test.mjs
+git clone https://github.com/afafMaliha0716/neetcode-submissions /tmp/neetcode
+node scripts/sync-neetcode.mjs /tmp/neetcode
 ```

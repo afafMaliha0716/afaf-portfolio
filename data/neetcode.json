@@ -1,0 +1,47 @@
+{
+  "repo": "afafMaliha0716/neetcode-submissions",
+  "solved": 6,
+  "calendar": {
+    "2026-10-04": 4,
+    "2026-10-05": 6
+  },
+  "recent": [
+    {
+      "title": "Top K Elements In List",
+      "slug": "top-k-elements-in-list",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791234734
+    },
+    {
+      "title": "Is Anagram",
+      "slug": "is-anagram",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791223554
+    },
+    {
+      "title": "Anagram Groups",
+      "slug": "anagram-groups",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791223516
+    },
+    {
+      "title": "Two Integer Sum",
+      "slug": "two-integer-sum",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791222358
+    },
+    {
+      "title": "Duplicate Integer",
+      "slug": "duplicate-integer",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791161372
+    },
+    {
+      "title": "Dynamic Array",
+      "slug": "dynamicArray",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791160133
+    }
+  ],
+  "syncedAt": "2026-10-05T21:19:37.081Z"
+}
