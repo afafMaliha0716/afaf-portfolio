@@ -1,9 +1,9 @@
 {
   "username": "afafmaliha0716",
   "solved": {
-    "all": 3,
-    "easy": 2,
-    "medium": 1,
+    "all": 5,
+    "easy": 3,
+    "medium": 2,
     "hard": 0
   },
   "totals": {
@@ -15,9 +15,19 @@
   "streak": 1,
   "activeDays": 1,
   "calendar": {
-    "2026-10-05": 4
+    "2026-10-05": 7
   },
   "recent": [
+    {
+      "title": "Group Anagrams",
+      "slug": "group-anagrams",
+      "timestamp": 1791223363
+    },
+    {
+      "title": "Two Sum",
+      "slug": "two-sum",
+      "timestamp": 1791221640
+    },
     {
       "title": "Valid Anagram",
       "slug": "valid-anagram",
@@ -34,5 +44,5 @@
       "timestamp": 1791160584
     }
   ],
-  "syncedAt": "2026-10-05T01:58:38.428Z"
+  "syncedAt": "2026-10-05T18:24:53.240Z"
 }
