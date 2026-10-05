@@ -1164,6 +1164,28 @@ body.no-glow .cursor-glow { display: none; }
   .m-lc.pass { background: var(--green); color: #06281a; }
   .m-theme { border: 0; background: var(--accent-glow); border-radius: 999px; width: 32px; height: 32px; font-size: 15px; }
 
+  /* Hero: the first screen, a shorter version of the bio */
+  .m-hero {
+    display: flex; flex-direction: column; justify-content: center; gap: 12px;
+    min-height: calc(100svh - 46px - 58px); padding: 32px 22px 24px; position: relative;
+    background:
+      radial-gradient(120% 70% at 85% 0%, var(--accent-glow), transparent 70%),
+      var(--bg-editor);
+  }
+  .m-hero-kicker { font: 13px 'JetBrains Mono', monospace; color: var(--cmt-color); }
+  .m-hero h1 { font: 700 44px/1.02 'Inter', sans-serif; letter-spacing: -0.03em; color: var(--text-primary); }
+  .m-hero-role { font: 500 14.5px 'Inter', sans-serif; color: var(--accent2); }
+  .m-hero-line { font: 16.5px/1.55 'Inter', sans-serif; color: var(--text-mid); margin-top: 6px; max-width: 32ch; }
+  .m-hero-actions { display: flex; gap: 10px; margin-top: 14px; }
+  .m-hero-actions button {
+    height: 46px; padding: 0 18px; border-radius: 10px; border: 1px solid var(--accent);
+    background: transparent; color: var(--accent2); font: 600 14.5px 'Inter', sans-serif;
+  }
+  .m-hero-actions button.primary { background: var(--accent); color: #fff; }
+  .m-hero-hint { position: absolute; left: 22px; bottom: 16px; font: 11.5px 'JetBrains Mono', monospace; color: var(--text-muted); }
+  /* The hero already says hello, so the bio card drops its own heading. */
+  .bio-block h1, .bio-block h2 { display: none; }
+
   /* Sections */
   .vscode-body, .editor-area { display: block; overflow: visible; }
   .editor-pane { display: block !important; overflow: visible; scroll-margin-top: 46px; }
@@ -1413,6 +1435,19 @@ body.no-glow .cursor-glow { display: none; }
 
     <!-- Tab Bar -->
     <div class="tab-bar" id="tabBar"></div>
+
+    <!-- ── HERO (phones only) ── -->
+    <header class="m-hero m-only" id="mHero">
+      <p class="m-hero-kicker">// hello, I'm</p>
+      <h1>Afaf Maliha</h1>
+      <p class="m-hero-role">Software engineer and product manager · CS at UT Austin</p>
+      <p class="m-hero-line">I start with the people who'll use the thing, then build it. Whatever I get curious about usually ends up as a project.</p>
+      <div class="m-hero-actions">
+        <button class="primary" onclick="openTab('projects')">See my projects</button>
+        <button onclick="openTab('contact')">Say hello</button>
+      </div>
+      <p class="m-hero-hint" aria-hidden="true">scroll ↓</p>
+    </header>
 
     <!-- ── ABOUT ── -->
     <div class="editor-pane active" id="pane-about">
