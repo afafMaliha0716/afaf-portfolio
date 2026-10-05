@@ -1123,13 +1123,142 @@ body.no-glow .cursor-glow { display: none; }
 .term-anim { white-space: pre; line-height: 1.25; color: var(--accent2); }
 
 /* ════════════════════════════════════════════════════════
-   MOBILE
+   PROJECT THUMBNAILS
    ════════════════════════════════════════════════════════ */
-@media (max-width: 680px) {
-  .sidebar, .actbar { display: none; }
-  .titlebar-menus { display: none; }
-  .lc-wrap, .proj-card, .exp-card, .skills-grid, .bio-block { margin-left: 14px; margin-right: 14px; }
+.proj-card { display: grid; grid-template-columns: minmax(160px, 240px) 1fr; gap: 16px; align-items: start; }
+.proj-thumb {
+  width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover;
+  border-radius: 6px; border: 1px solid var(--border); background: var(--bg-terminal); display: block;
+}
+.proj-body { min-width: 0; }
+.m-only { display: none; }
+
+/* ════════════════════════════════════════════════════════
+   PHONES: one long scroll instead of an editor
+   Tabs, sidebar, menus and the typing terminal are desktop
+   pleasures. On a phone the same files become sections of a
+   single page, with a bottom bar to jump between them.
+   ════════════════════════════════════════════════════════ */
+@media (max-width: 760px) {
+  .m-only { display: revert; }
+  * { cursor: auto !important; }
+  html, body { height: auto; overflow: visible; }
+  body { display: block; height: auto; padding-bottom: calc(58px + env(safe-area-inset-bottom)); }
+
+  .sidebar, .actbar, .resize-handle-x, .resize-handle-y, .tab-bar, .statusbar,
+  .titlebar-menus, .titlebar-center, .cursor-glow, .cursor-dot, .cl,
+  .ptab:not(#ptab-terminal), .panel-ctrl, .term-input-row,
+  #problems-body, #output-body { display: none !important; }
+
+  /* Title bar */
+  .titlebar { position: sticky; top: 0; z-index: 60; height: 46px; gap: 12px; }
+  .titlebar-controls span { width: 13px; height: 13px; }
+  .m-title { font: 500 13px 'JetBrains Mono', monospace; color: var(--text-mid); }
+  .m-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+  .m-lc {
+    border: 0; border-radius: 999px; padding: 4px 10px;
+    font: 600 11px 'JetBrains Mono', monospace; background: var(--accent-glow); color: var(--accent2);
+  }
+  .m-lc.fail { background: var(--red); color: #2a0714; }
+  .m-lc.warn { background: var(--yellow); color: #2a1a00; }
+  .m-lc.pass { background: var(--green); color: #06281a; }
+  .m-theme { border: 0; background: var(--accent-glow); border-radius: 999px; width: 32px; height: 32px; font-size: 15px; }
+
+  /* Hero: the first screen, a shorter version of the bio */
+  .m-hero {
+    display: flex; flex-direction: column; justify-content: center; gap: 12px;
+    min-height: calc(100svh - 46px - 58px); padding: 32px 22px 24px; position: relative;
+    background:
+      radial-gradient(120% 70% at 85% 0%, var(--accent-glow), transparent 70%),
+      var(--bg-editor);
+  }
+  .m-hero-kicker { font: 13px 'JetBrains Mono', monospace; color: var(--cmt-color); }
+  .m-hero h1 { font: 700 44px/1.02 'Inter', sans-serif; letter-spacing: -0.03em; color: var(--text-primary); }
+  .m-hero-role { font: 500 14.5px 'Inter', sans-serif; color: var(--accent2); }
+  .m-hero-line { font: 16.5px/1.55 'Inter', sans-serif; color: var(--text-mid); margin-top: 6px; max-width: 32ch; }
+  .m-hero-actions { display: flex; gap: 10px; margin-top: 14px; }
+  .m-hero-actions button {
+    height: 46px; padding: 0 18px; border-radius: 10px; border: 1px solid var(--accent);
+    background: transparent; color: var(--accent2); font: 600 14.5px 'Inter', sans-serif;
+  }
+  .m-hero-actions button.primary { background: var(--accent); color: #fff; }
+  .m-hero-hint { position: absolute; left: 22px; bottom: 16px; font: 11.5px 'JetBrains Mono', monospace; color: var(--text-muted); }
+  /* The hero already says hello, so the bio card drops its own heading. */
+  .bio-block h1, .bio-block h2 { display: none; }
+
+  /* Sections */
+  .vscode-body, .editor-area { display: block; overflow: visible; }
+  .editor-pane { display: block !important; overflow: visible; scroll-margin-top: 46px; }
+  .editor-scroll { overflow: visible; padding: 14px 0 30px; zoom: 1 !important; }
+  .breadcrumb {
+    position: sticky; top: 46px; z-index: 40;
+    padding: 9px 14px; font-size: 12.5px;
+    border-top: 1px solid var(--border);
+  }
+  .breadcrumb span:first-child, .bc-sep { display: none; }
+  .breadcrumb::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+  .lc-wrap, .proj-card, .exp-card, .skills-grid, .bio-block, .contact-link { margin-left: 14px; margin-right: 14px; }
+  .m-label { margin: 18px 14px 8px; font: 600 12px 'Inter', sans-serif; color: var(--text-muted); }
+  .m-label:first-child { margin-top: 0; }
+
+  .bio-block { padding: 20px 18px; border-radius: 0 12px 12px 0; }
+  .bio-block h1 { font-size: 27px; }
+  .bio-block h2 { font-size: 13.5px; }
+  .bio-block p { font-size: 14.5px; line-height: 1.7; }
+  .exp-card p, .proj-card p { font-size: 13.5px; }
+  .exp-card h3, .proj-card h3 { font-size: 15px; }
+  .skills-grid { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); }
   .lc-pips { margin-left: 0; }
+  .contact-link { padding: 14px 16px; }
+
+  /* Projects: swipe through them */
+  .proj-list {
+    display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 2px 14px 6px; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .proj-list::-webkit-scrollbar { display: none; }
+  .proj-card {
+    flex: 0 0 86%; margin: 0; padding: 0; display: block; overflow: hidden;
+    scroll-snap-align: center; border-radius: 12px;
+  }
+  .proj-card:hover { transform: none; }
+  .proj-thumb { border: 0; border-bottom: 1px solid var(--border); border-radius: 0; }
+  .proj-body { padding: 14px 16px 16px; }
+  .proj-dots { display: flex; justify-content: center; gap: 6px; padding: 8px 0 0; }
+  .proj-dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--border-light); transition: all 0.2s; }
+  .proj-dots span.on { width: 18px; border-radius: 3px; background: var(--accent); }
+
+  /* The terminal becomes the last section: tap a command, watch it run */
+  .panel { height: auto !important; display: block; border-top: 1px solid var(--border); }
+  .panel-hdr { padding: 6px 8px; }
+  .term-chips {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 12px 14px 4px;
+    font: 12px 'JetBrains Mono', monospace; color: var(--text-muted);
+  }
+  .term-chips button {
+    border: 1px solid var(--accent); background: var(--accent-glow); color: var(--accent2);
+    border-radius: 999px; padding: 7px 14px; font: 600 12.5px 'JetBrains Mono', monospace;
+  }
+  .terminal-body { display: block !important; height: 200px; overflow-y: auto; padding: 8px 14px 14px; }
+
+  /* Bottom bar */
+  .mnav {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
+    background: var(--bg-titlebar); border-top: 1px solid var(--border);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .mnav button {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    height: 58px; border: 0; background: none;
+    font: 500 10px 'JetBrains Mono', monospace; color: var(--text-muted);
+  }
+  .mnav button.on { color: var(--text-primary); background: var(--accent-glow); }
+  body.minimized .mnav, body.closed .mnav { display: none; }
+
+  .notif-container { left: 12px; right: 12px; bottom: 70px; }
+  .menu { display: none; }
 }
 </style>
 </head>
@@ -1220,6 +1349,11 @@ body.no-glow .cursor-glow { display: none; }
   <div class="titlebar-menus">
     <span data-menu="File">File</span><span data-menu="Edit">Edit</span><span data-menu="View">View</span><span data-menu="Go">Go</span><span data-menu="Run">Run</span>
   </div>
+  <div class="m-title m-only">afaf-maliha</div>
+  <div class="m-actions m-only">
+    <button class="m-lc" id="m-lc" onclick="openTab('leetcode')" hidden></button>
+    <button class="m-theme" id="m-theme" onclick="toggleTheme()" aria-label="Next color theme">🌙</button>
+  </div>
   <div class="titlebar-center" id="titleCenter">portfolio — afafmaliha0716.github.io/afaf-portfolio</div>
 </div>
 
@@ -1302,6 +1436,19 @@ body.no-glow .cursor-glow { display: none; }
     <!-- Tab Bar -->
     <div class="tab-bar" id="tabBar"></div>
 
+    <!-- ── HERO (phones only) ── -->
+    <header class="m-hero m-only" id="mHero">
+      <p class="m-hero-kicker">// hello, I'm</p>
+      <h1>Afaf Maliha</h1>
+      <p class="m-hero-role">Software engineer and product manager · CS at UT Austin</p>
+      <p class="m-hero-line">I start with the people who'll use the thing, then build it. Whatever I get curious about usually ends up as a project.</p>
+      <div class="m-hero-actions">
+        <button class="primary" onclick="openTab('projects')">See my projects</button>
+        <button onclick="openTab('contact')">Say hello</button>
+      </div>
+      <p class="m-hero-hint" aria-hidden="true">scroll ↓</p>
+    </header>
+
     <!-- ── ABOUT ── -->
     <div class="editor-pane active" id="pane-about">
       <div class="breadcrumb"><span>portfolio</span><span class="bc-sep">›</span><span class="bc-act">about.ts</span></div>
@@ -1357,35 +1504,54 @@ body.no-glow .cursor-glow { display: none; }
         <div class="cl"><span class="ln">4</span><span class="lc"><span class="kw">const</span> <span class="fn">projects</span>: <span class="typ">Project[]</span> = [</span></div>
         <div class="cl"><span class="ln">5</span><span class="lc"></span></div>
 
+        <div class="proj-list" id="projList">
         <div class="proj-card">
-          <h3>🐚 Remi · AI coach for ADHD <a href="https://github.com/afafMaliha0716/remi" target="_blank" rel="noopener">GitHub ↗</a></h3>
-          <p>A pocket coach that turns ADHD overwhelm into one small next step. It ranks your tasks and keeps the next three in front of you, talks you through "plan my day", "I'm overwhelmed", and "I lost something", and runs a focus timer with XP, levels, and streaks. I wrote the PRD from user research and competitive analysis; the AI has a rule-based fallback, so the app and its 87 tests run with no API key.</p>
-          <div class="tags" style="margin-top:8px;"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Gemini API</span></div>
+          <img class="proj-thumb" src="assets/projects/remi.jpg" alt="Three Remi screens: today's tasks, the coach chat, and the focus timer" width="1200" height="750" loading="lazy" />
+          <div class="proj-body">
+            <h3>🐚 Remi · AI coach for ADHD <a href="https://github.com/afafMaliha0716/remi" target="_blank" rel="noopener">GitHub ↗</a></h3>
+            <p>A pocket coach that turns ADHD overwhelm into one small next step. It ranks your tasks and keeps the next three in front of you, talks you through "plan my day", "I'm overwhelmed", and "I lost something", and runs a focus timer with XP, levels, and streaks. I wrote the PRD from user research and competitive analysis; the AI has a rule-based fallback, so the app and its 87 tests run with no API key.</p>
+            <div class="tags" style="margin-top:8px;"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Gemini API</span></div>
+          </div>
         </div>
 
         <div class="proj-card">
-          <h3>🧗 Crux · Climbing coach that fits your body <a href="https://github.com/afafMaliha0716/crux-coach" target="_blank" rel="noopener">GitHub ↗</a></h3>
-          <p>I'm five feet tall, and "just reach for it" isn't advice when you can't reach it. Crux builds a session from the routes on a gym's wall, tracks your pose from a video of an attempt in the browser, and gives feedback from what it measured: the elbow angle at your furthest reach, whether a high foot was set first. It flags moves longer than 93% of your span and shows beta written for your height. The rules are plain TypeScript with 54 unit tests.</p>
-          <div class="tags" style="margin-top:8px;"><span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">MediaPipe Pose</span><span class="tag">Tailwind CSS</span><span class="tag">Vitest</span></div>
+          <img class="proj-thumb" src="assets/projects/crux.jpg" alt="Three Crux screens: today's session, an analyzed attempt with a skeleton overlay, and the updated session" width="1200" height="750" loading="lazy" />
+          <div class="proj-body">
+            <h3>🧗 Crux · Climbing coach that fits your body <a href="https://github.com/afafMaliha0716/crux-coach" target="_blank" rel="noopener">GitHub ↗</a></h3>
+            <p>I'm five feet tall, and "just reach for it" isn't advice when you can't reach it. Crux builds a session from the routes on a gym's wall, tracks your pose from a video of an attempt in the browser, and gives feedback from what it measured: the elbow angle at your furthest reach, whether a high foot was set first. It flags moves longer than 93% of your span and shows beta written for your height. The rules are plain TypeScript with 54 unit tests.</p>
+            <div class="tags" style="margin-top:8px;"><span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">MediaPipe Pose</span><span class="tag">Tailwind CSS</span><span class="tag">Vitest</span></div>
+          </div>
         </div>
 
         <div class="proj-card">
-          <h3>🎧 FocusDJ · Focus-adaptive music <a href="https://github.com/afafMaliha0716/focus-dj" target="_blank" rel="noopener">GitHub ↗</a></h3>
-          <p>A Chrome extension, built with a teammate, that scores your focus in real time from tab switching, idle time, scrolling, and optional webcam face detection, then changes your YouTube Music to pull you back. A UCB1 multi-armed bandit learns which kind of nudge actually works for each person.</p>
-          <div class="tags" style="margin-top:8px;"><span class="tag">JavaScript</span><span class="tag">Chrome Extension APIs</span><span class="tag">React</span><span class="tag">Groq API</span></div>
+          <img class="proj-thumb" src="assets/projects/focusdj.jpg" alt="The FocusDJ sign-in screen and the extension popup with its focus score" width="1200" height="750" loading="lazy" />
+          <div class="proj-body">
+            <h3>🎧 FocusDJ · Focus-adaptive music <a href="https://github.com/afafMaliha0716/focus-dj" target="_blank" rel="noopener">GitHub ↗</a></h3>
+            <p>A Chrome extension, built with a teammate, that scores your focus in real time from tab switching, idle time, scrolling, and optional webcam face detection, then changes your YouTube Music to pull you back. A UCB1 multi-armed bandit learns which kind of nudge actually works for each person.</p>
+            <div class="tags" style="margin-top:8px;"><span class="tag">JavaScript</span><span class="tag">Chrome Extension APIs</span><span class="tag">React</span><span class="tag">Groq API</span></div>
+          </div>
         </div>
 
         <div class="proj-card">
-          <h3>🔮 Asteria · AI game generator</h3>
-          <p>Describe a world, get a playable game. A hackathon project built with two teammates at HackTX 2025: a multi-agent system on the Gemini API designs the concept, writes the game on a Python engine from tested templates, and packages it for download from a React frontend.</p>
-          <div class="tags" style="margin-top:8px;"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Gemini API</span><span class="tag">React</span><span class="tag">TypeScript</span></div>
+          <img class="proj-thumb" src="assets/projects/asteria.jpg" alt="The Asteria landing page: a pixel-art night sky with a Start Creating button" width="1200" height="750" loading="lazy" />
+          <div class="proj-body">
+            <h3>🔮 Asteria · AI game generator</h3>
+            <p>Describe a world, get a playable game. A hackathon project built with two teammates at HackTX 2025: a multi-agent system on the Gemini API designs the concept, writes the game on a Python engine from tested templates, and packages it for download from a React frontend.</p>
+            <div class="tags" style="margin-top:8px;"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Gemini API</span><span class="tag">React</span><span class="tag">TypeScript</span></div>
+          </div>
         </div>
 
         <div class="proj-card">
-          <h3>🌸 This portfolio <a href="https://github.com/afafMaliha0716/afaf-portfolio" target="_blank" rel="noopener">GitHub ↗</a></h3>
-          <p>A pink VS Code in one HTML file with no frameworks: command palette, working terminal, resizable panels, light and dark themes, and a LeetCode tracker that a scheduled GitHub Action keeps current.</p>
-          <div class="tags" style="margin-top:8px;"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">GitHub Actions</span></div>
+          <img class="proj-thumb" src="assets/projects/portfolio.jpg" alt="This site: a pink VS Code window with the about file open" width="1200" height="750" loading="lazy" />
+          <div class="proj-body">
+            <h3>🌸 This portfolio <a href="https://github.com/afafMaliha0716/afaf-portfolio" target="_blank" rel="noopener">GitHub ↗</a></h3>
+            <p>A pink VS Code in one HTML file with no frameworks: command palette, working terminal, resizable panels, light and dark themes, and a LeetCode tracker that a scheduled GitHub Action keeps current.</p>
+            <div class="tags" style="margin-top:8px;"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">GitHub Actions</span></div>
+          </div>
         </div>
+
+        </div>
+        <div class="proj-dots m-only" id="projDots" aria-hidden="true"></div>
 
         <div class="cl" style="margin-top:8px;"><span class="ln">6</span><span class="lc">];</span></div>
         <div class="cl"><span class="ln">7</span><span class="lc"><span class="kw">export default</span> projects;</span></div>
@@ -1441,6 +1607,7 @@ body.no-glow .cursor-glow { display: none; }
           <div class="tags" style="margin-top:9px;"><span class="tag">Full-Stack</span><span class="tag">LLM APIs</span><span class="tag">Agile</span></div>
         </div>
 
+        <h3 class="m-label m-only">Leadership</h3>
         <div class="cl" style="margin-top:12px;"><span class="ln">5</span><span class="lc"><span class="cmt">// ── Leadership ─────────────────────────────────────────────</span></span></div>
         <div class="cl"><span class="ln">6</span><span class="lc"></span></div>
 
@@ -1479,6 +1646,7 @@ body.no-glow .cursor-glow { display: none; }
       <div class="breadcrumb"><span>portfolio</span><span class="bc-sep">›</span><span class="bc-act">skills.json</span></div>
       <div class="editor-scroll">
         <div class="cl"><span class="ln">1</span><span class="lc">{</span></div>
+        <h3 class="m-label m-only">Languages</h3>
         <div class="cl"><span class="ln">2</span><span class="lc">  <span class="prop">"languages"</span>: [</span></div>
         <div class="skills-grid">
           <div class="skill-item"><span class="sdot" style="background:#5b9cf6"></span>Python</div>
@@ -1492,6 +1660,7 @@ body.no-glow .cursor-glow { display: none; }
           <div class="skill-item"><span class="sdot" style="background:#7ecfff"></span>CSS</div>
         </div>
         <div class="cl"><span class="ln">3</span><span class="lc">  ],</span></div>
+        <h3 class="m-label m-only">Frameworks</h3>
         <div class="cl"><span class="ln">4</span><span class="lc">  <span class="prop">"frameworks"</span>: [</span></div>
         <div class="skills-grid">
           <div class="skill-item"><span class="sdot" style="background:#61dafb"></span>React</div>
@@ -1502,6 +1671,7 @@ body.no-glow .cursor-glow { display: none; }
           <div class="skill-item"><span class="sdot" style="background:#ff6b9d"></span>Multi-Agent Systems</div>
         </div>
         <div class="cl"><span class="ln">5</span><span class="lc">  ],</span></div>
+        <h3 class="m-label m-only">Tools</h3>
         <div class="cl"><span class="ln">6</span><span class="lc">  <span class="prop">"tools"</span>: [</span></div>
         <div class="skills-grid">
           <div class="skill-item"><span class="sdot" style="background:#f05032"></span>Git</div>
@@ -1515,6 +1685,7 @@ body.no-glow .cursor-glow { display: none; }
           <div class="skill-item"><span class="sdot" style="background:#0052cc"></span>Jira</div>
         </div>
         <div class="cl"><span class="ln">7</span><span class="lc">  ],</span></div>
+        <h3 class="m-label m-only">Product</h3>
         <div class="cl"><span class="ln">8</span><span class="lc">  <span class="prop">"product"</span>: [</span></div>
         <div class="skills-grid">
           <div class="skill-item"><span class="sdot" style="background:#e8357a"></span>User Research</div>
@@ -1598,6 +1769,14 @@ body.no-glow .cursor-glow { display: none; }
           <button onclick="clearTerminal()" title="Clear terminal">⊗</button>
         </div>
       </div>
+      <div class="term-chips m-only" id="termChips">
+        <span>tap to run:</span>
+        <button onclick="runCommand('bloom')">bloom</button>
+        <button onclick="runCommand('matcha')">matcha</button>
+        <button onclick="runCommand('deploy')">deploy</button>
+        <button onclick="runCommand('party')">party</button>
+        <button onclick="runCommand('leetcode')">leetcode</button>
+      </div>
       <div class="terminal-body active" id="terminal-body">
         <div id="term-log"></div>
         <div class="term-input-row">
@@ -1617,6 +1796,16 @@ body.no-glow .cursor-glow { display: none; }
 
   </div><!-- /editor-area -->
 </div><!-- /vscode-body -->
+
+<!-- Phone navigation -->
+<nav class="mnav m-only" id="mnav" aria-label="Sections">
+  <button data-go="about"><span class="f-dot ts"></span>about</button>
+  <button data-go="projects"><span class="f-dot tsx"></span>projects</button>
+  <button data-go="experience"><span class="f-dot tsx"></span>work</button>
+  <button data-go="skills"><span class="f-dot json"></span>skills</button>
+  <button data-go="leetcode"><span class="f-dot py"></span>leetcode</button>
+  <button data-go="contact"><span class="f-dot ts"></span>contact</button>
+</nav>
 
 <!-- Status Bar -->
 <div class="statusbar">
@@ -1665,7 +1854,14 @@ function renderTabs() {
   });
 }
 
+const isPhone = () => window.matchMedia('(max-width: 760px)').matches;
+
 function openTab(id) {
+  // On a phone every file is already on the page, so opening one means scrolling to it.
+  if (isPhone()) {
+    document.getElementById('pane-' + id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return;
+  }
   if (!openTabs.includes(id)) openTabs.push(id);
   current = id;
   ALL_TABS.forEach(f => {
@@ -1720,6 +1916,7 @@ function setTheme(name, quiet) {
   theme = name;
   document.documentElement.setAttribute('data-theme', name);
   document.getElementById('themeBtn').textContent = THEMES[name].icon;
+  document.getElementById('m-theme').textContent = THEMES[name].icon;
   if (!quiet) termLog(`<span class="t-ok">✓</span> <span class="t-out">Theme switched to ${THEMES[name].label}</span>`);
   try { localStorage.setItem('afaf-theme', name); } catch(e){}
   return true;
@@ -2051,6 +2248,10 @@ function lcRender(state) {
   const sb = document.getElementById('sb-lc');
   sb.className = `sb-item sb-lc ${level}`;
   sb.textContent = `LeetCode ${h.icon} ${Math.min(solvedToday, LC_GOAL)}/${LC_GOAL}`;
+  const chip = document.getElementById('m-lc');
+  chip.hidden = false;
+  chip.className = `m-lc ${level}`;
+  chip.textContent = `LC ${h.icon} ${Math.min(solvedToday, LC_GOAL)}/${LC_GOAL}`;
   const failing = level !== 'pass';
   document.getElementById('lcProblem').innerHTML = failing
     ? `<div class="prob-row" onclick="openTab('leetcode')"><span class="prob-icon">${level === 'fail' ? '❌' : '⚠️'}</span><span class="prob-msg"><span style="color:var(--red)">leetcode.py</span> — daily goal not met: ${solvedToday} of ${LC_GOAL} problems solved today</span><span class="prob-loc">leetcode.py 6:1</span></div>`
@@ -2230,6 +2431,8 @@ function restoreWindow() {
   document.body.classList.remove('minimized', 'closed');
 }
 function toggleFullscreen() {
+  // Phones are already full screen, so the green light throws confetti.
+  if (isPhone()) { confetti(); return; }
   if (document.fullscreenElement) { document.exitFullscreen(); return; }
   const request = document.documentElement.requestFullscreen?.();
   // Where full screen isn't allowed (some phones, embeds), zen mode is the next best thing.
@@ -2314,6 +2517,44 @@ document.querySelectorAll('.cl').forEach((line) => {
 function encodingNote() {
   showNotif({ title: 'UTF-8', msg: "Handles every script, including Arabic, which I'm minoring in. مرحبا 👋" });
 }
+
+/* ══════════════════════════════════════════════════════
+   PHONE LAYOUT: bottom bar and project swiper
+══════════════════════════════════════════════════════ */
+(function () {
+  const nav = document.getElementById('mnav');
+  nav.addEventListener('click', (e) => {
+    const button = e.target.closest('button[data-go]');
+    if (button) openTab(button.dataset.go);
+  });
+  // Light up whichever section is under the middle of the screen.
+  const spy = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      const id = entry.target.id.replace('pane-', '');
+      nav.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b.dataset.go === id));
+    }
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  ALL_TABS.forEach((id) => spy.observe(document.getElementById('pane-' + id)));
+
+  // One dot per project; the wide one is the card in view.
+  const list = document.getElementById('projList');
+  const dots = document.getElementById('projDots');
+  const cards = [...list.querySelectorAll('.proj-card')];
+  dots.innerHTML = cards.map((_, i) => `<span class="${i ? '' : 'on'}"></span>`).join('');
+  let ticking = false;
+  list.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const middle = list.scrollLeft + list.clientWidth / 2;
+      let current = 0;
+      cards.forEach((card, i) => { if (card.offsetLeft <= middle) current = i; });
+      [...dots.children].forEach((dot, i) => dot.classList.toggle('on', i === current));
+      ticking = false;
+    });
+  }, { passive: true });
+})();
 
 /* ══════════════════════════════════════════════════════
    STATUS BAR ROTATING MESSAGE
@@ -2459,8 +2700,9 @@ function showNotif({ title, msg, primary, secondary, onPrimary, onSecondary }) {
   setTimeout(() => { if (el.parentNode) el.remove(); }, 8000);
 }
 
-// Show welcome notification after 2s
+// Show welcome notification after 2s (desktop only: on a phone it covers the page)
 setTimeout(() => {
+  if (isPhone()) return;
   showNotif({
     title: '✦ Afaf Maliha',
     msg: 'Afaf is open to connect — internships, collabs, or just a good conversation.',
