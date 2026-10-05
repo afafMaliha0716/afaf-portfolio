@@ -56,6 +56,13 @@ LeetCode's public GraphQL endpoint with
 [`scripts/sync-leetcode.mjs`](scripts/sync-leetcode.mjs), and commits
 `data/leetcode.json` when the numbers change. The page reads that file.
 
+## On a phone
+
+Tabs, a sidebar and a typing terminal don't suit a small screen, so on a phone
+the same files become sections of one scrolling page. A bottom bar jumps
+between them, projects swipe sideways, and the terminal turns into a row of
+commands you tap to run.
+
 ## How it's built
 
 One `index.html` with plain HTML, CSS, and JavaScript. No frameworks, no build
