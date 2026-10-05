@@ -1,4 +1,4 @@
-name: Sync LeetCode stats
+name: Sync NeetCode progress
 
 on:
   schedule:
@@ -7,14 +7,14 @@ on:
   push:
     branches: [main]
     paths:
-      - scripts/sync-leetcode.mjs
-      - .github/workflows/leetcode.yml
+      - scripts/sync-neetcode.mjs
+      - .github/workflows/neetcode.yml
 
 permissions:
   contents: write
 
 concurrency:
-  group: leetcode-sync
+  group: neetcode-sync
   cancel-in-progress: false
 
 jobs:
@@ -25,14 +25,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node --test scripts/sync-leetcode.test.mjs
-      - run: node scripts/sync-leetcode.mjs afafMaliha0716
-      - name: Commit if the stats changed
+      - run: node --test scripts/sync-neetcode.test.mjs
+      - name: Fetch the solutions repo with its full history
+        run: git clone --quiet https://github.com/afafMaliha0716/neetcode-submissions "$RUNNER_TEMP/neetcode"
+      - run: node scripts/sync-neetcode.mjs "$RUNNER_TEMP/neetcode"
+      - name: Commit if the progress changed
         run: |
           if [ -n "$(git status --porcelain data/)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/leetcode.json
-            git commit -m "Update LeetCode stats"
+            git add data/neetcode.json
+            git commit -m "Update NeetCode progress"
             git push
           fi
