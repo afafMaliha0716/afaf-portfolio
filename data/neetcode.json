@@ -1,11 +1,24 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 6,
+  "solved": 8,
   "calendar": {
     "2026-10-04": 4,
-    "2026-10-05": 6
+    "2026-10-05": 6,
+    "2026-10-06": 3
   },
   "recent": [
+    {
+      "title": "Products Of Array Discluding Self",
+      "slug": "products-of-array-discluding-self",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791321279
+    },
+    {
+      "title": "String Encode And Decode",
+      "slug": "string-encode-and-decode",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791311492
+    },
     {
       "title": "Top K Elements In List",
       "slug": "top-k-elements-in-list",
@@ -43,5 +56,5 @@
       "timestamp": 1791160133
     }
   ],
-  "syncedAt": "2026-10-05T21:19:37.081Z"
+  "syncedAt": "2026-10-06T21:37:21.177Z"
 }
