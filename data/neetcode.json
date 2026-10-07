@@ -1,12 +1,19 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 8,
+  "solved": 9,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
-    "2026-10-06": 3
+    "2026-10-06": 3,
+    "2026-10-07": 1
   },
   "recent": [
+    {
+      "title": "Longest Consecutive Sequence",
+      "slug": "longest-consecutive-sequence",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791392780
+    },
     {
       "title": "Products Of Array Discluding Self",
       "slug": "products-of-array-discluding-self",
@@ -56,5 +63,5 @@
       "timestamp": 1791160133
     }
   ],
-  "syncedAt": "2026-10-06T21:37:21.177Z"
+  "syncedAt": "2026-10-07T21:58:36.688Z"
 }
