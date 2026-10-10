@@ -1,25 +1,32 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 12,
+  "solved": 13,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
     "2026-10-06": 3,
     "2026-10-07": 2,
-    "2026-10-08": 3
+    "2026-10-08": 3,
+    "2026-10-09": 2
   },
   "recent": [
     {
-      "title": "Duplicate Integer",
-      "slug": "duplicate-integer",
+      "title": "Validate Parentheses",
+      "slug": "validate-parentheses",
       "topic": "Data Structures & Algorithms",
-      "timestamp": 1791520437
+      "timestamp": 1791606729
     },
     {
       "title": "Binary Search",
       "slug": "binary-search",
       "topic": "Data Structures & Algorithms",
-      "timestamp": 1791517928
+      "timestamp": 1791601272
+    },
+    {
+      "title": "Duplicate Integer",
+      "slug": "duplicate-integer",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791520437
     },
     {
       "title": "Three Integer Sum",
@@ -82,5 +89,5 @@
       "timestamp": 1791160133
     }
   ],
-  "syncedAt": "2026-10-09T09:03:33.804Z"
+  "syncedAt": "2026-10-10T07:06:26.457Z"
 }
