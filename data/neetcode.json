@@ -1,15 +1,28 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 13,
+  "solved": 15,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
     "2026-10-06": 3,
     "2026-10-07": 2,
     "2026-10-08": 3,
-    "2026-10-09": 2
+    "2026-10-09": 2,
+    "2026-10-10": 2
   },
   "recent": [
+    {
+      "title": "Invert A Binary Tree",
+      "slug": "invert-a-binary-tree",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791690378
+    },
+    {
+      "title": "Depth Of Binary Tree",
+      "slug": "depth-of-binary-tree",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791689827
+    },
     {
       "title": "Validate Parentheses",
       "slug": "validate-parentheses",
@@ -89,5 +102,5 @@
       "timestamp": 1791160133
     }
   ],
-  "syncedAt": "2026-10-10T07:06:26.457Z"
+  "syncedAt": "2026-10-11T08:49:57.898Z"
 }
