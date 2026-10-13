@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 20,
+  "solved": 21,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -10,9 +10,16 @@
     "2026-10-09": 2,
     "2026-10-10": 2,
     "2026-10-11": 2,
-    "2026-10-12": 3
+    "2026-10-12": 3,
+    "2026-10-13": 1
   },
   "recent": [
+    {
+      "title": "Count Connected Components",
+      "slug": "count-connected-components",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791934397
+    },
     {
       "title": "Rotting Fruit",
       "slug": "rotting-fruit",
@@ -126,13 +133,7 @@
       "slug": "two-integer-sum",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1791222358
-    },
-    {
-      "title": "Dynamic Array",
-      "slug": "dynamicArray",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791160133
     }
   ],
-  "syncedAt": "2026-10-13T03:33:43.688Z"
+  "syncedAt": "2026-10-13T23:43:44.341Z"
 }
