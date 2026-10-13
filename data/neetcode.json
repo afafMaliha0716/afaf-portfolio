@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 17,
+  "solved": 20,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -9,9 +9,28 @@
     "2026-10-08": 3,
     "2026-10-09": 2,
     "2026-10-10": 2,
-    "2026-10-11": 2
+    "2026-10-11": 2,
+    "2026-10-12": 3
   },
   "recent": [
+    {
+      "title": "Rotting Fruit",
+      "slug": "rotting-fruit",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791855825
+    },
+    {
+      "title": "Max Area Of Island",
+      "slug": "max-area-of-island",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791852291
+    },
+    {
+      "title": "Count Number Of Islands",
+      "slug": "count-number-of-islands",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1791851162
+    },
     {
       "title": "K Closest Points To Origin",
       "slug": "k-closest-points-to-origin",
@@ -115,5 +134,5 @@
       "timestamp": 1791160133
     }
   ],
-  "syncedAt": "2026-10-11T23:43:10.857Z"
+  "syncedAt": "2026-10-13T03:33:43.688Z"
 }
