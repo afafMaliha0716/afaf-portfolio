@@ -11,9 +11,16 @@
     "2026-10-10": 2,
     "2026-10-11": 2,
     "2026-10-12": 3,
-    "2026-10-13": 1
+    "2026-10-13": 1,
+    "2026-10-14": 2
   },
   "recent": [
+    {
+      "title": "Count Number Of Islands",
+      "slug": "count-number-of-islands",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1792017924
+    },
     {
       "title": "Count Connected Components",
       "slug": "count-connected-components",
@@ -31,12 +38,6 @@
       "slug": "max-area-of-island",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1791852291
-    },
-    {
-      "title": "Count Number Of Islands",
-      "slug": "count-number-of-islands",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791851162
     },
     {
       "title": "K Closest Points To Origin",
@@ -135,5 +136,5 @@
       "timestamp": 1791222358
     }
   ],
-  "syncedAt": "2026-10-13T23:43:44.341Z"
+  "syncedAt": "2026-10-14T23:14:08.977Z"
 }
