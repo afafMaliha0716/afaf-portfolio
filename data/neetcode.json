@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 21,
+  "solved": 23,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -13,9 +13,22 @@
     "2026-10-12": 3,
     "2026-10-13": 1,
     "2026-10-14": 2,
-    "2026-10-16": 1
+    "2026-10-16": 1,
+    "2026-10-19": 2
   },
   "recent": [
+    {
+      "title": "Cheapest Flight Path",
+      "slug": "cheapest-flight-path",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1792467835
+    },
+    {
+      "title": "Longest Palindromic Substring",
+      "slug": "longest-palindromic-substring",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1792467721
+    },
     {
       "title": "Count Number Of Islands",
       "slug": "count-number-of-islands",
@@ -123,19 +136,7 @@
       "slug": "is-anagram",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1791223554
-    },
-    {
-      "title": "Anagram Groups",
-      "slug": "anagram-groups",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791223516
-    },
-    {
-      "title": "Two Integer Sum",
-      "slug": "two-integer-sum",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791222358
     }
   ],
-  "syncedAt": "2026-10-17T04:24:54.733Z"
+  "syncedAt": "2026-10-20T04:50:21.654Z"
 }
