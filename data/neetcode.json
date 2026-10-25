@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 23,
+  "solved": 24,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -14,9 +14,16 @@
     "2026-10-13": 1,
     "2026-10-14": 2,
     "2026-10-16": 1,
-    "2026-10-19": 2
+    "2026-10-19": 2,
+    "2026-10-24": 1
   },
   "recent": [
+    {
+      "title": "Buy And Sell Crypto",
+      "slug": "buy-and-sell-crypto",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1792888835
+    },
     {
       "title": "Cheapest Flight Path",
       "slug": "cheapest-flight-path",
@@ -130,13 +137,7 @@
       "slug": "top-k-elements-in-list",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1791234734
-    },
-    {
-      "title": "Is Anagram",
-      "slug": "is-anagram",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791223554
     }
   ],
-  "syncedAt": "2026-10-20T04:50:21.654Z"
+  "syncedAt": "2026-10-25T01:11:35.715Z"
 }
