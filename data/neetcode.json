@@ -15,14 +15,15 @@
     "2026-10-14": 2,
     "2026-10-16": 1,
     "2026-10-19": 2,
-    "2026-10-24": 1
+    "2026-10-24": 1,
+    "2026-10-25": 1
   },
   "recent": [
     {
       "title": "Buy And Sell Crypto",
       "slug": "buy-and-sell-crypto",
       "topic": "Data Structures & Algorithms",
-      "timestamp": 1792888835
+      "timestamp": 1792953534
     },
     {
       "title": "Cheapest Flight Path",
@@ -139,5 +140,5 @@
       "timestamp": 1791234734
     }
   ],
-  "syncedAt": "2026-10-25T01:11:35.715Z"
+  "syncedAt": "2026-10-25T19:36:24.922Z"
 }
