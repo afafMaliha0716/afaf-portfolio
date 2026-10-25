@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 24,
+  "solved": 25,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -16,9 +16,15 @@
     "2026-10-16": 1,
     "2026-10-19": 2,
     "2026-10-24": 1,
-    "2026-10-25": 1
+    "2026-10-25": 2
   },
   "recent": [
+    {
+      "title": "Longest Substring Without Duplicates",
+      "slug": "longest-substring-without-duplicates",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1792960889
+    },
     {
       "title": "Buy And Sell Crypto",
       "slug": "buy-and-sell-crypto",
@@ -132,13 +138,7 @@
       "slug": "string-encode-and-decode",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1791311492
-    },
-    {
-      "title": "Top K Elements In List",
-      "slug": "top-k-elements-in-list",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791234734
     }
   ],
-  "syncedAt": "2026-10-25T19:36:24.922Z"
+  "syncedAt": "2026-10-25T22:32:44.546Z"
 }
