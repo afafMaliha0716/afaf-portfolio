@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 25,
+  "solved": 27,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -16,9 +16,22 @@
     "2026-10-16": 1,
     "2026-10-19": 2,
     "2026-10-24": 1,
-    "2026-10-25": 2
+    "2026-10-25": 2,
+    "2026-10-26": 2
   },
   "recent": [
+    {
+      "title": "Reverse A Linked List",
+      "slug": "reverse-a-linked-list",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1792992109
+    },
+    {
+      "title": "Max Water Container",
+      "slug": "max-water-container",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1792990807
+    },
     {
       "title": "Longest Substring Without Duplicates",
       "slug": "longest-substring-without-duplicates",
@@ -126,19 +139,7 @@
       "slug": "longest-consecutive-sequence",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1791392780
-    },
-    {
-      "title": "Products Of Array Discluding Self",
-      "slug": "products-of-array-discluding-self",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791321279
-    },
-    {
-      "title": "String Encode And Decode",
-      "slug": "string-encode-and-decode",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791311492
     }
   ],
-  "syncedAt": "2026-10-25T22:32:44.546Z"
+  "syncedAt": "2026-10-26T06:12:52.638Z"
 }
