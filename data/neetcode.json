@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 31,
+  "solved": 32,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -19,9 +19,22 @@
     "2026-10-25": 2,
     "2026-10-26": 9,
     "2026-10-27": 1,
-    "2026-10-28": 5
+    "2026-10-28": 5,
+    "2026-10-29": 2
   },
   "recent": [
+    {
+      "title": "Find Minimum In Rotated Sorted Array",
+      "slug": "find-minimum-in-rotated-sorted-array",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793254835
+    },
+    {
+      "title": "Longest Substring Without Duplicates",
+      "slug": "longest-substring-without-duplicates",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793251243
+    },
     {
       "title": "House Robber",
       "slug": "house-robber",
@@ -63,12 +76,6 @@
       "slug": "reverse-a-linked-list",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1793033141
-    },
-    {
-      "title": "Longest Substring Without Duplicates",
-      "slug": "longest-substring-without-duplicates",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793032242
     },
     {
       "title": "Max Water Container",
@@ -135,13 +142,7 @@
       "slug": "depth-of-binary-tree",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1791689827
-    },
-    {
-      "title": "Validate Parentheses",
-      "slug": "validate-parentheses",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791606729
     }
   ],
-  "syncedAt": "2026-10-29T00:55:41.473Z"
+  "syncedAt": "2026-10-29T07:04:47.317Z"
 }
