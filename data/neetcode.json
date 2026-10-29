@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 30,
+  "solved": 31,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -19,20 +19,32 @@
     "2026-10-25": 2,
     "2026-10-26": 9,
     "2026-10-27": 1,
-    "2026-10-28": 1
+    "2026-10-28": 5
   },
   "recent": [
+    {
+      "title": "House Robber",
+      "slug": "house-robber",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793229287
+    },
+    {
+      "title": "Count Number Of Islands",
+      "slug": "count-number-of-islands",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793228252
+    },
+    {
+      "title": "Remove Node From End Of Linked List",
+      "slug": "remove-node-from-end-of-linked-list",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793221595
+    },
     {
       "title": "Longest Consecutive Sequence",
       "slug": "longest-consecutive-sequence",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1793214358
-    },
-    {
-      "title": "House Robber",
-      "slug": "house-robber",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793113788
     },
     {
       "title": "House Robber Ii",
@@ -83,12 +95,6 @@
       "timestamp": 1792467721
     },
     {
-      "title": "Count Number Of Islands",
-      "slug": "count-number-of-islands",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1792204672
-    },
-    {
       "title": "Count Connected Components",
       "slug": "count-connected-components",
       "topic": "Data Structures & Algorithms",
@@ -135,13 +141,7 @@
       "slug": "validate-parentheses",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1791606729
-    },
-    {
-      "title": "Binary Search",
-      "slug": "binary-search",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791601272
     }
   ],
-  "syncedAt": "2026-10-28T21:03:28.237Z"
+  "syncedAt": "2026-10-29T00:55:41.473Z"
 }
