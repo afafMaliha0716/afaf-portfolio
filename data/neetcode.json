@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 32,
+  "solved": 34,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -20,9 +20,33 @@
     "2026-10-26": 9,
     "2026-10-27": 1,
     "2026-10-28": 5,
-    "2026-10-29": 2
+    "2026-10-29": 7
   },
   "recent": [
+    {
+      "title": "Kth Largest Element In An Array",
+      "slug": "kth-largest-element-in-an-array",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793303194
+    },
+    {
+      "title": "K Closest Points To Origin",
+      "slug": "k-closest-points-to-origin",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793302633
+    },
+    {
+      "title": "Depth Of Binary Tree",
+      "slug": "depth-of-binary-tree",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793300459
+    },
+    {
+      "title": "Level Order Traversal Of Binary Tree",
+      "slug": "level-order-traversal-of-binary-tree",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793297984
+    },
     {
       "title": "Find Minimum In Rotated Sorted Array",
       "slug": "find-minimum-in-rotated-sorted-array",
@@ -118,31 +142,7 @@
       "slug": "max-area-of-island",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1791852291
-    },
-    {
-      "title": "K Closest Points To Origin",
-      "slug": "k-closest-points-to-origin",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791756586
-    },
-    {
-      "title": "Kth Largest Integer In A Stream",
-      "slug": "kth-largest-integer-in-a-stream",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791755355
-    },
-    {
-      "title": "Invert A Binary Tree",
-      "slug": "invert-a-binary-tree",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791690378
-    },
-    {
-      "title": "Depth Of Binary Tree",
-      "slug": "depth-of-binary-tree",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1791689827
     }
   ],
-  "syncedAt": "2026-10-29T07:04:47.317Z"
+  "syncedAt": "2026-10-29T20:17:17.409Z"
 }
