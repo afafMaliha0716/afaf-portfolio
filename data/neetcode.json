@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 35,
+  "solved": 37,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -21,9 +21,39 @@
     "2026-10-27": 1,
     "2026-10-28": 5,
     "2026-10-29": 10,
-    "2026-10-30": 1
+    "2026-10-30": 7
   },
   "recent": [
+    {
+      "title": "Longest Consecutive Sequence",
+      "slug": "longest-consecutive-sequence",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793418451
+    },
+    {
+      "title": "Set Zeroes In Matrix",
+      "slug": "set-zeroes-in-matrix",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793417544
+    },
+    {
+      "title": "Merge Intervals",
+      "slug": "merge-intervals",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793415078
+    },
+    {
+      "title": "Rotting Fruit",
+      "slug": "rotting-fruit",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793407022
+    },
+    {
+      "title": "Longest Substring Without Duplicates",
+      "slug": "longest-substring-without-duplicates",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793404727
+    },
     {
       "title": "Invert A Binary Tree",
       "slug": "invert-a-binary-tree",
@@ -73,12 +103,6 @@
       "timestamp": 1793297984
     },
     {
-      "title": "Longest Substring Without Duplicates",
-      "slug": "longest-substring-without-duplicates",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793251243
-    },
-    {
       "title": "House Robber",
       "slug": "house-robber",
       "topic": "Data Structures & Algorithms",
@@ -95,12 +119,6 @@
       "slug": "remove-node-from-end-of-linked-list",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1793221595
-    },
-    {
-      "title": "Longest Consecutive Sequence",
-      "slug": "longest-consecutive-sequence",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793214358
     },
     {
       "title": "House Robber Ii",
@@ -125,25 +143,7 @@
       "slug": "max-water-container",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1792990807
-    },
-    {
-      "title": "Buy And Sell Crypto",
-      "slug": "buy-and-sell-crypto",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1792953534
-    },
-    {
-      "title": "Cheapest Flight Path",
-      "slug": "cheapest-flight-path",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1792467835
-    },
-    {
-      "title": "Longest Palindromic Substring",
-      "slug": "longest-palindromic-substring",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1792467721
     }
   ],
-  "syncedAt": "2026-10-30T19:21:40.052Z"
+  "syncedAt": "2026-10-31T05:39:34.164Z"
 }
