@@ -21,9 +21,16 @@
     "2026-10-27": 1,
     "2026-10-28": 5,
     "2026-10-29": 10,
-    "2026-10-30": 7
+    "2026-10-30": 7,
+    "2026-10-31": 2
   },
   "recent": [
+    {
+      "title": "Merge Intervals",
+      "slug": "merge-intervals",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793481356
+    },
     {
       "title": "Longest Consecutive Sequence",
       "slug": "longest-consecutive-sequence",
@@ -35,12 +42,6 @@
       "slug": "set-zeroes-in-matrix",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1793417544
-    },
-    {
-      "title": "Merge Intervals",
-      "slug": "merge-intervals",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793415078
     },
     {
       "title": "Rotting Fruit",
@@ -145,5 +146,5 @@
       "timestamp": 1792990807
     }
   ],
-  "syncedAt": "2026-10-31T05:39:34.164Z"
+  "syncedAt": "2026-10-31T21:32:59.394Z"
 }
