@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 37,
+  "solved": 38,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -22,9 +22,27 @@
     "2026-10-28": 5,
     "2026-10-29": 10,
     "2026-10-30": 7,
-    "2026-10-31": 2
+    "2026-10-31": 5
   },
   "recent": [
+    {
+      "title": "Depth Of Binary Tree",
+      "slug": "depth-of-binary-tree",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793495031
+    },
+    {
+      "title": "Validate Parentheses",
+      "slug": "validate-parentheses",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793494437
+    },
+    {
+      "title": "Daily Temperatures",
+      "slug": "daily-temperatures",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793483188
+    },
     {
       "title": "Merge Intervals",
       "slug": "merge-intervals",
@@ -92,12 +110,6 @@
       "timestamp": 1793302633
     },
     {
-      "title": "Depth Of Binary Tree",
-      "slug": "depth-of-binary-tree",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793300459
-    },
-    {
       "title": "Level Order Traversal Of Binary Tree",
       "slug": "level-order-traversal-of-binary-tree",
       "topic": "Data Structures & Algorithms",
@@ -132,19 +144,7 @@
       "slug": "find-target-in-rotated-sorted-array",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1793036778
-    },
-    {
-      "title": "Reverse A Linked List",
-      "slug": "reverse-a-linked-list",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793033141
-    },
-    {
-      "title": "Max Water Container",
-      "slug": "max-water-container",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1792990807
     }
   ],
-  "syncedAt": "2026-10-31T21:32:59.394Z"
+  "syncedAt": "2026-11-01T01:08:42.904Z"
 }
