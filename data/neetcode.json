@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 39,
+  "solved": 40,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -23,9 +23,15 @@
     "2026-10-29": 10,
     "2026-10-30": 7,
     "2026-10-31": 6,
-    "2026-11-01": 1
+    "2026-11-01": 3
   },
   "recent": [
+    {
+      "title": "Course Schedule",
+      "slug": "course-schedule",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793562680
+    },
     {
       "title": "Daily Temperatures",
       "slug": "daily-temperatures",
@@ -139,13 +145,7 @@
       "slug": "remove-node-from-end-of-linked-list",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1793221595
-    },
-    {
-      "title": "House Robber Ii",
-      "slug": "house-robber-ii",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793072278
     }
   ],
-  "syncedAt": "2026-11-01T19:39:14.398Z"
+  "syncedAt": "2026-11-01T23:35:20.076Z"
 }
