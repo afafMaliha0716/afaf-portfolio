@@ -22,9 +22,16 @@
     "2026-10-28": 5,
     "2026-10-29": 10,
     "2026-10-30": 7,
-    "2026-10-31": 6
+    "2026-10-31": 6,
+    "2026-11-01": 1
   },
   "recent": [
+    {
+      "title": "Daily Temperatures",
+      "slug": "daily-temperatures",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793558124
+    },
     {
       "title": "Binary Tree Diameter",
       "slug": "binary-tree-diameter",
@@ -42,12 +49,6 @@
       "slug": "validate-parentheses",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1793494437
-    },
-    {
-      "title": "Daily Temperatures",
-      "slug": "daily-temperatures",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793483188
     },
     {
       "title": "Merge Intervals",
@@ -146,5 +147,5 @@
       "timestamp": 1793072278
     }
   ],
-  "syncedAt": "2026-11-01T07:31:34.175Z"
+  "syncedAt": "2026-11-01T19:39:14.398Z"
 }
