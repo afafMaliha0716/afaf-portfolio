@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 38,
+  "solved": 39,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -22,9 +22,15 @@
     "2026-10-28": 5,
     "2026-10-29": 10,
     "2026-10-30": 7,
-    "2026-10-31": 5
+    "2026-10-31": 6
   },
   "recent": [
+    {
+      "title": "Binary Tree Diameter",
+      "slug": "binary-tree-diameter",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793497979
+    },
     {
       "title": "Depth Of Binary Tree",
       "slug": "depth-of-binary-tree",
@@ -138,13 +144,7 @@
       "slug": "house-robber-ii",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1793072278
-    },
-    {
-      "title": "Find Target In Rotated Sorted Array",
-      "slug": "find-target-in-rotated-sorted-array",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793036778
     }
   ],
-  "syncedAt": "2026-11-01T01:08:42.904Z"
+  "syncedAt": "2026-11-01T07:31:34.175Z"
 }
