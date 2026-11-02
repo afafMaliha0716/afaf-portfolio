@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 40,
+  "solved": 42,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -23,9 +23,22 @@
     "2026-10-29": 10,
     "2026-10-30": 7,
     "2026-10-31": 6,
-    "2026-11-01": 3
+    "2026-11-01": 3,
+    "2026-11-02": 2
   },
   "recent": [
+    {
+      "title": "Jump Game",
+      "slug": "jump-game",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793661760
+    },
+    {
+      "title": "Spiral Matrix",
+      "slug": "spiral-matrix",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793643730
+    },
     {
       "title": "Course Schedule",
       "slug": "course-schedule",
@@ -133,19 +146,7 @@
       "slug": "house-robber",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1793229287
-    },
-    {
-      "title": "Count Number Of Islands",
-      "slug": "count-number-of-islands",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793228252
-    },
-    {
-      "title": "Remove Node From End Of Linked List",
-      "slug": "remove-node-from-end-of-linked-list",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793221595
     }
   ],
-  "syncedAt": "2026-11-01T23:35:20.076Z"
+  "syncedAt": "2026-11-02T23:29:20.900Z"
 }
