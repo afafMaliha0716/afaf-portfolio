@@ -1,6 +1,6 @@
 {
   "repo": "afafMaliha0716/neetcode-submissions",
-  "solved": 42,
+  "solved": 43,
   "calendar": {
     "2026-10-04": 4,
     "2026-10-05": 6,
@@ -24,9 +24,16 @@
     "2026-10-30": 7,
     "2026-10-31": 6,
     "2026-11-01": 3,
-    "2026-11-02": 2
+    "2026-11-02": 2,
+    "2026-11-03": 1
   },
   "recent": [
+    {
+      "title": "Maximum Subarray",
+      "slug": "maximum-subarray",
+      "topic": "Data Structures & Algorithms",
+      "timestamp": 1793735867
+    },
     {
       "title": "Jump Game",
       "slug": "jump-game",
@@ -140,13 +147,7 @@
       "slug": "level-order-traversal-of-binary-tree",
       "topic": "Data Structures & Algorithms",
       "timestamp": 1793297984
-    },
-    {
-      "title": "House Robber",
-      "slug": "house-robber",
-      "topic": "Data Structures & Algorithms",
-      "timestamp": 1793229287
     }
   ],
-  "syncedAt": "2026-11-02T23:29:20.900Z"
+  "syncedAt": "2026-11-03T20:58:28.257Z"
 }
